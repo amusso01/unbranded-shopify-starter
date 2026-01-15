@@ -1,4 +1,4 @@
-/** Critical CSS for the theme. This file is included on every page. */
+/** Base CSS for the theme. This file is included on every page. */
 
 /* Reset styles inspired by https://www.joshwcomeau.com/css/custom-css-reset/ */
 * {
@@ -73,9 +73,52 @@ p:empty {
 
 /** Theme styles below */
 body {
-  font-family: var(--font-primary--family);
+  font-family: var(--font-body--family);
   background-color: var(--color-background);
   color: var(--color-foreground);
+}
+
+/** Typography - Headings */
+h1 {
+  font-family: var(--type-h1--family);
+  font-size: var(--type-h1--size);
+  line-height: var(--type-h1--line-height);
+  letter-spacing: var(--type-h1--letter-spacing);
+}
+
+h2 {
+  font-family: var(--type-h2--family);
+  font-size: var(--type-h2--size);
+  line-height: var(--type-h2--line-height);
+  letter-spacing: var(--type-h2--letter-spacing);
+}
+
+h3 {
+  font-family: var(--type-h3--family);
+  font-size: var(--type-h3--size);
+  line-height: var(--type-h3--line-height);
+  letter-spacing: var(--type-h3--letter-spacing);
+}
+
+h4 {
+  font-family: var(--type-h4--family);
+  font-size: var(--type-h4--size);
+  line-height: var(--type-h4--line-height);
+  letter-spacing: var(--type-h4--letter-spacing);
+}
+
+h5 {
+  font-family: var(--type-h5--family);
+  font-size: var(--type-h5--size);
+  line-height: var(--type-h5--line-height);
+  letter-spacing: var(--type-h5--letter-spacing);
+}
+
+h6 {
+  font-family: var(--type-h6--family);
+  font-size: var(--type-h6--size);
+  line-height: var(--type-h6--line-height);
+  letter-spacing: var(--type-h6--letter-spacing);
 }
 
 /** Section layout utilities */
