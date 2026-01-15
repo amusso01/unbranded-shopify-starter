@@ -33,7 +33,7 @@
     --type-h1--family: {% if settings.type_h1_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
     --type-h1--size: {{ settings.type_h1_size }}px;
     --type-h1--line-height: {{ settings.type_h1_line_height }}px;
-    --type-h1--letter-spacing: {{ settings.type_h1_letter_spacing }}em;
+    --type-h1--letter-spacing: {{ settings.type_h1_letter_spacing | times: 10 }}px;
 
     {% # ============================================ %}
     {% # Typography Variables - H2 Heading %}
@@ -41,7 +41,7 @@
     --type-h2--family: {% if settings.type_h2_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
     --type-h2--size: {{ settings.type_h2_size }}px;
     --type-h2--line-height: {{ settings.type_h2_line_height }}px;
-    --type-h2--letter-spacing: {{ settings.type_h2_letter_spacing }}em;
+    --type-h2--letter-spacing: {{ settings.type_h2_letter_spacing | times: 10 }}px;
 
     {% # ============================================ %}
     {% # Typography Variables - H3 Heading %}
@@ -49,7 +49,7 @@
     --type-h3--family: {% if settings.type_h3_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
     --type-h3--size: {{ settings.type_h3_size }}px;
     --type-h3--line-height: {{ settings.type_h3_line_height }}px;
-    --type-h3--letter-spacing: {{ settings.type_h3_letter_spacing }}em;
+    --type-h3--letter-spacing: {{ settings.type_h3_letter_spacing | times: 10 }}px;
 
     {% # ============================================ %}
     {% # Typography Variables - H4 Heading %}
@@ -57,7 +57,7 @@
     --type-h4--family: {% if settings.type_h4_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
     --type-h4--size: {{ settings.type_h4_size }}px;
     --type-h4--line-height: {{ settings.type_h4_line_height }}px;
-    --type-h4--letter-spacing: {{ settings.type_h4_letter_spacing }}em;
+    --type-h4--letter-spacing: {{ settings.type_h4_letter_spacing | times: 10 }}px;
 
     {% # ============================================ %}
     {% # Typography Variables - H5 Heading %}
@@ -65,7 +65,7 @@
     --type-h5--family: {% if settings.type_h5_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
     --type-h5--size: {{ settings.type_h5_size }}px;
     --type-h5--line-height: {{ settings.type_h5_line_height }}px;
-    --type-h5--letter-spacing: {{ settings.type_h5_letter_spacing }}em;
+    --type-h5--letter-spacing: {{ settings.type_h5_letter_spacing | times: 10 }}px;
 
     {% # ============================================ %}
     {% # Typography Variables - H6 Heading %}
@@ -73,7 +73,7 @@
     --type-h6--family: {% if settings.type_h6_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
     --type-h6--size: {{ settings.type_h6_size }}px;
     --type-h6--line-height: {{ settings.type_h6_line_height }}px;
-    --type-h6--letter-spacing: {{ settings.type_h6_letter_spacing }}em;
+    --type-h6--letter-spacing: {{ settings.type_h6_letter_spacing | times: 10 }}px;
 
     {% # ============================================ %}
     {% # Typography Variables - Paragraph %}
@@ -81,6 +81,6 @@
     --type-paragraph--family: var(--font-body--family);
     --type-paragraph--size: {{ settings.type_paragraph_size }}px;
     --type-paragraph--line-height: {{ settings.type_paragraph_line_height }}px;
-    --type-paragraph--letter-spacing: {{ settings.type_paragraph_letter_spacing }}em;
+    --type-paragraph--letter-spacing: {{ settings.type_paragraph_letter_spacing | times: 10 }}px;
   }
 {% endstyle %}
