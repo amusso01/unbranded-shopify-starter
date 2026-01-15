@@ -73,7 +73,10 @@ p:empty {
 
 /** Theme styles below */
 body {
-  font-family: var(--font-body--family);
+  font-family: var(--type-paragraph--family);
+  font-size: var(--type-paragraph--size);
+  line-height: var(--type-paragraph--line-height);
+  letter-spacing: var(--type-paragraph--letter-spacing);
   background-color: var(--color-background);
   color: var(--color-foreground);
 }

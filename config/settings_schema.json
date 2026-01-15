@@ -69,9 +69,9 @@
 			{
 				"type": "range",
 				"id": "type_h1_letter_spacing",
-				"min": -1,
-				"max": 1,
-				"step": 0.1,
+				"min": -5,
+				"max": 40,
+				"step": 0.5,
 				"unit": "em",
 				"label": "t:labels.letter_spacing",
 				"default": 0
@@ -119,9 +119,9 @@
 			{
 				"type": "range",
 				"id": "type_h2_letter_spacing",
-				"min": -1,
-				"max": 1,
-				"step": 0.1,
+				"min": -5,
+				"max": 40,
+				"step": 0.5,
 				"unit": "em",
 				"label": "t:labels.letter_spacing",
 				"default": 0
@@ -169,9 +169,9 @@
 			{
 				"type": "range",
 				"id": "type_h3_letter_spacing",
-				"min": -1,
-				"max": 1,
-				"step": 0.1,
+				"min": -5,
+				"max": 40,
+				"step": 0.5,
 				"unit": "em",
 				"label": "t:labels.letter_spacing",
 				"default": 0
@@ -219,9 +219,9 @@
 			{
 				"type": "range",
 				"id": "type_h4_letter_spacing",
-				"min": -1,
-				"max": 1,
-				"step": 0.1,
+				"min": -5,
+				"max": 40,
+				"step": 0.5,
 				"unit": "em",
 				"label": "t:labels.letter_spacing",
 				"default": 0
@@ -269,9 +269,9 @@
 			{
 				"type": "range",
 				"id": "type_h5_letter_spacing",
-				"min": -1,
-				"max": 1,
-				"step": 0.1,
+				"min": -5,
+				"max": 40,
+				"step": 0.5,
 				"unit": "em",
 				"label": "t:labels.letter_spacing",
 				"default": 0
@@ -319,9 +319,9 @@
 			{
 				"type": "range",
 				"id": "type_h6_letter_spacing",
-				"min": -1,
-				"max": 1,
-				"step": 0.1,
+				"min": -5,
+				"max": 40,
+				"step": 0.5,
 				"unit": "em",
 				"label": "t:labels.letter_spacing",
 				"default": 0
@@ -353,9 +353,9 @@
 			{
 				"type": "range",
 				"id": "type_paragraph_letter_spacing",
-				"min": -1,
-				"max": 1,
-				"step": 0.1,
+				"min": -5,
+				"max": 40,
+				"step": 0.5,
 				"unit": "em",
 				"label": "t:labels.letter_spacing",
 				"default": 0
