@@ -1,18 +1,86 @@
 {% style %}
-  {% # Loads all font variantions with display: swap %}
-  {{ settings.type_primary_font | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
-
   :root {
-    --font-primary--family: {{ settings.type_primary_font.family }}, {{ settings.type_primary_font.fallback_families }};
-    --font-primary--style: {{ settings.type_primary_font.style }};
-    --font-primary--weight: {{ settings.type_primary_font.weight }};
+    {% # ============================================ %}
+    {% # Base Font Variables - Header & Body Fonts %}
+    {% # ============================================ %}
+    --font-header--family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+    --font-header--style: {{ settings.type_header_font.style }};
+    --font-header--weight: {{ settings.type_header_font.weight }};
+    --font-body--family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    --font-body--style: {{ settings.type_body_font.style }};
+    --font-body--weight: {{ settings.type_body_font.weight }};
+
+    {% # ============================================ %}
+    {% # Layout Variables - Page Width & Margins %}
+    {% # ============================================ %}
     --page-width: {{ settings.max_page_width }};
     --page-margin: {{ settings.min_page_margin }}px;
+
+    {% # ============================================ %}
+    {% # Color Variables - Background & Foreground %}
+    {% # ============================================ %}
     --color-background: {{ settings.background_color }};
     --color-foreground: {{ settings.foreground_color }};
+
+    {% # ============================================ %}
+    {% # Style Variables - Border Radius & More %}
+    {% # ============================================ %}
     --style-border-radius-inputs: {{ settings.input_corner_radius }}px;
+
+    {% # ============================================ %}
+    {% # Typography Variables - H1 Heading %}
+    {% # ============================================ %}
+    --type-h1--family: {% if settings.type_h1_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
+    --type-h1--size: {{ settings.type_h1_size }}px;
+    --type-h1--line-height: {{ settings.type_h1_line_height }}px;
+    --type-h1--letter-spacing: {{ settings.type_h1_letter_spacing }}px;
+
+    {% # ============================================ %}
+    {% # Typography Variables - H2 Heading %}
+    {% # ============================================ %}
+    --type-h2--family: {% if settings.type_h2_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
+    --type-h2--size: {{ settings.type_h2_size }}px;
+    --type-h2--line-height: {{ settings.type_h2_line_height }}px;
+    --type-h2--letter-spacing: {{ settings.type_h2_letter_spacing }}px;
+
+    {% # ============================================ %}
+    {% # Typography Variables - H3 Heading %}
+    {% # ============================================ %}
+    --type-h3--family: {% if settings.type_h3_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
+    --type-h3--size: {{ settings.type_h3_size }}px;
+    --type-h3--line-height: {{ settings.type_h3_line_height }}px;
+    --type-h3--letter-spacing: {{ settings.type_h3_letter_spacing }}px;
+
+    {% # ============================================ %}
+    {% # Typography Variables - H4 Heading %}
+    {% # ============================================ %}
+    --type-h4--family: {% if settings.type_h4_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
+    --type-h4--size: {{ settings.type_h4_size }}px;
+    --type-h4--line-height: {{ settings.type_h4_line_height }}px;
+    --type-h4--letter-spacing: {{ settings.type_h4_letter_spacing }}px;
+
+    {% # ============================================ %}
+    {% # Typography Variables - H5 Heading %}
+    {% # ============================================ %}
+    --type-h5--family: {% if settings.type_h5_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
+    --type-h5--size: {{ settings.type_h5_size }}px;
+    --type-h5--line-height: {{ settings.type_h5_line_height }}px;
+    --type-h5--letter-spacing: {{ settings.type_h5_letter_spacing }}px;
+
+    {% # ============================================ %}
+    {% # Typography Variables - H6 Heading %}
+    {% # ============================================ %}
+    --type-h6--family: {% if settings.type_h6_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
+    --type-h6--size: {{ settings.type_h6_size }}px;
+    --type-h6--line-height: {{ settings.type_h6_line_height }}px;
+    --type-h6--letter-spacing: {{ settings.type_h6_letter_spacing }}px;
+
+    {% # ============================================ %}
+    {% # Typography Variables - Paragraph %}
+    {% # ============================================ %}
+    --type-paragraph--family: var(--font-body--family);
+    --type-paragraph--size: {{ settings.type_paragraph_size }}px;
+    --type-paragraph--line-height: {{ settings.type_paragraph_line_height }}px;
+    --type-paragraph--letter-spacing: {{ settings.type_paragraph_letter_spacing }}px;
   }
 {% endstyle %}

@@ -1,0 +1,21 @@
+{% doc %}
+  Loads all font variations with display: swap for header and body fonts.
+
+  @example
+  {% render 'font-loader' %}
+{% enddoc %}
+
+{% style %}
+  {% # ============================================ %}
+  {% # Font Loading - Loads all font variations with display: swap %}
+  {% # ============================================ %}
+  {{ settings.type_header_font | font_face: font_display: 'swap' }}
+  {{ settings.type_header_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
+  {{ settings.type_header_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  {{ settings.type_header_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+
+  {{ settings.type_body_font | font_face: font_display: 'swap' }}
+  {{ settings.type_body_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
+  {{ settings.type_body_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  {{ settings.type_body_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+{% endstyle %}
