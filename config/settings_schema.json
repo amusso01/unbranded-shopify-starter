@@ -51,7 +51,7 @@
 				"id": "type_h1_size",
 				"min": 8,
 				"max": 150,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.size",
 				"default": 48
@@ -61,7 +61,7 @@
 				"id": "type_h1_line_height",
 				"min": 0,
 				"max": 200,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.line_height",
 				"default": 56
@@ -101,7 +101,7 @@
 				"id": "type_h2_size",
 				"min": 8,
 				"max": 150,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.size",
 				"default": 40
@@ -111,7 +111,7 @@
 				"id": "type_h2_line_height",
 				"min": 0,
 				"max": 200,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.line_height",
 				"default": 48
@@ -151,7 +151,7 @@
 				"id": "type_h3_size",
 				"min": 8,
 				"max": 150,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.size",
 				"default": 32
@@ -161,7 +161,7 @@
 				"id": "type_h3_line_height",
 				"min": 0,
 				"max": 200,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.line_height",
 				"default": 40
@@ -201,7 +201,7 @@
 				"id": "type_h4_size",
 				"min": 8,
 				"max": 150,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.size",
 				"default": 24
@@ -211,7 +211,7 @@
 				"id": "type_h4_line_height",
 				"min": 0,
 				"max": 200,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.line_height",
 				"default": 32
@@ -251,7 +251,7 @@
 				"id": "type_h5_size",
 				"min": 8,
 				"max": 150,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.size",
 				"default": 20
@@ -261,7 +261,7 @@
 				"id": "type_h5_line_height",
 				"min": 0,
 				"max": 200,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.line_height",
 				"default": 28
@@ -301,7 +301,7 @@
 				"id": "type_h6_size",
 				"min": 8,
 				"max": 150,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.size",
 				"default": 18
@@ -311,7 +311,7 @@
 				"id": "type_h6_line_height",
 				"min": 0,
 				"max": 200,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.line_height",
 				"default": 24
@@ -335,7 +335,7 @@
 				"id": "type_paragraph_size",
 				"min": 8,
 				"max": 150,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.size",
 				"default": 16
@@ -345,7 +345,7 @@
 				"id": "type_paragraph_line_height",
 				"min": 0,
 				"max": 200,
-				"step": 1,
+				"step": 2,
 				"unit": "px",
 				"label": "t:labels.line_height",
 				"default": 24
