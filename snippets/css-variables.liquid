@@ -17,10 +17,14 @@
     --page-margin: {{ settings.min_page_margin }}px;
 
     {% # ============================================ %}
-    {% # Color Variables - Background & Foreground %}
+    {% # Color Variables - Color Scheme %}
     {% # ============================================ %}
-    --color-background: {{ settings.background_color }};
-    --color-foreground: {{ settings.foreground_color }};
+    {% assign color_scheme = settings.color_schemes.first %}
+    --color-background: {{ color_scheme.settings.background }};
+    --color-headings: {{ color_scheme.settings.headings }};
+    --color-text: {{ color_scheme.settings.text }};
+    --color-links: {{ color_scheme.settings.links }};
+    --color-hover-links: {{ color_scheme.settings.hover_links }};
 
     {% # ============================================ %}
     {% # Style Variables - Border Radius & More %}

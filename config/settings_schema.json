@@ -363,6 +363,21 @@
 		]
 	},
 	{
+		"name": "t:general.logo_and_favicon",
+		"settings": [
+			{
+				"type": "image_picker",
+				"id": "logo",
+				"label": "t:labels.default_logo"
+			},
+			{
+				"type": "image_picker",
+				"id": "favicon",
+				"label": "t:labels.favicon"
+			}
+		]
+	},
+	{
 		"name": "t:general.layout",
 		"settings": [
 			{
@@ -397,16 +412,52 @@
 		"name": "t:general.colors",
 		"settings": [
 			{
-				"type": "color",
-				"id": "background_color",
-				"default": "#FFFFFF",
-				"label": "t:labels.background"
-			},
-			{
-				"type": "color",
-				"id": "foreground_color",
-				"default": "#333333",
-				"label": "t:labels.foreground"
+				"type": "color_scheme_group",
+				"id": "color_schemes",
+				"definition": [
+					{
+						"type": "color",
+						"id": "background",
+						"label": "t:labels.background",
+						"default": "#FFFFFF",
+						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "headings",
+						"label": "t:labels.headings",
+						"default": "#000000",
+						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "text",
+						"label": "t:labels.text",
+						"default": "#333333",
+						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "links",
+						"label": "t:labels.links",
+						"default": "#000F9F",
+						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "hover_links",
+						"label": "t:labels.hover_links",
+						"default": "#000000",
+						"alpha": true
+					}
+				],
+				"role": {
+					"background": "background",
+					"text": "text",
+					"headings": "headings",
+					"links": "links",
+					"hover_links": "hover_links"
+				}
 			},
 			{
 				"type": "range",
