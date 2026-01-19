@@ -9,13 +9,62 @@
   {% # ============================================ %}
   {% # Font Loading - Loads all font variations with display: swap %}
   {% # ============================================ %}
+  
+  {% # Load default header font %}
   {{ settings.type_header_font | font_face: font_display: 'swap' }}
   {{ settings.type_header_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
   {{ settings.type_header_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
   {{ settings.type_header_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
 
+  {% # Load default body font %}
   {{ settings.type_body_font | font_face: font_display: 'swap' }}
   {{ settings.type_body_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
   {{ settings.type_body_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
   {{ settings.type_body_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+
+  {% # ============================================ %}
+  {% # Custom Font Loading - Header Alternative Font %}
+  {% # ============================================ %}
+  {% if settings.header_alternative_font_file != blank and settings.header_alternative_font_name != blank %}
+    {% liquid
+      assign header_font_path = settings.header_alternative_font_file | strip
+      if header_font_path contains 'assets/'
+        assign header_font_path = header_font_path | remove_first: 'assets/'
+      endif
+      if header_font_path contains '/'
+        assign header_font_path = header_font_path | remove_first: '/'
+      endif
+    %}
+    @font-face {
+      font-family: '{{ settings.header_alternative_font_name }}';
+      src: url('{{ header_font_path | asset_url }}') format('woff2'),
+           url('{{ header_font_path | asset_url }}') format('woff');
+      font-display: swap;
+      font-weight: normal;
+      font-style: normal;
+    }
+  {% endif %}
+
+  {% # ============================================ %}
+  {% # Custom Font Loading - Body Alternative Font %}
+  {% # ============================================ %}
+  {% if settings.body_alternative_font_file != blank and settings.body_alternative_font_name != blank %}
+    {% liquid
+      assign body_font_path = settings.body_alternative_font_file | strip
+      if body_font_path contains 'assets/'
+        assign body_font_path = body_font_path | remove_first: 'assets/'
+      endif
+      if body_font_path contains '/'
+        assign body_font_path = body_font_path | remove_first: '/'
+      endif
+    %}
+    @font-face {
+      font-family: '{{ settings.body_alternative_font_name }}';
+      src: url('{{ body_font_path | asset_url }}') format('woff2'),
+           url('{{ body_font_path | asset_url }}') format('woff');
+      font-display: swap;
+      font-weight: normal;
+      font-style: normal;
+    }
+  {% endif %}
 {% endstyle %}
