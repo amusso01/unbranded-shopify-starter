@@ -458,16 +458,16 @@
 					},
 					{
 						"type": "color",
-						"id": "headings",
-						"label": "t:labels.headings",
-						"default": "#000000",
+						"id": "text",
+						"label": "t:labels.text",
+						"default": "#333333",
 						"alpha": true
 					},
 					{
 						"type": "color",
-						"id": "text",
-						"label": "t:labels.text",
-						"default": "#333333",
+						"id": "headings",
+						"label": "t:labels.headings",
+						"default": "#000000",
 						"alpha": true
 					},
 					{
@@ -483,14 +483,76 @@
 						"label": "t:labels.hover_links",
 						"default": "#000000",
 						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "icons",
+						"label": "t:labels.icons",
+						"default": "#000000",
+						"alpha": true
+					},
+					{
+						"type": "header",
+						"content": "t:labels.primary_button"
+					},
+					{
+						"type": "color",
+						"id": "primary_button_background",
+						"label": "t:labels.background",
+						"default": "#000F9F",
+						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "primary_button_text",
+						"label": "t:labels.text",
+						"default": "#FFFFFF",
+						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "primary_button_border",
+						"label": "t:labels.borders",
+						"default": "#000F9F",
+						"alpha": true
+					},
+					{
+						"type": "header",
+						"content": "t:labels.secondary_button"
+					},
+					{
+						"type": "color",
+						"id": "secondary_button_background",
+						"label": "t:labels.background",
+						"default": "#FFFFFF",
+						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "secondary_button_text",
+						"label": "t:labels.text",
+						"default": "#000000",
+						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "secondary_button_border",
+						"label": "t:labels.borders",
+						"default": "#000000",
+						"alpha": true
 					}
 				],
 				"role": {
 					"background": "background",
 					"text": "text",
-					"headings": "headings",
 					"links": "links",
-					"hover_links": "hover_links"
+					"icons": "icons",
+					"primary_button": "primary_button_background",
+					"on_primary_button": "primary_button_text",
+					"primary_button_border": "primary_button_border",
+					"secondary_button": "secondary_button_background",
+					"on_secondary_button": "secondary_button_text",
+					"secondary_button_border": "secondary_button_border"
 				}
 			},
 			{
