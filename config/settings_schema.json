@@ -41,11 +41,30 @@
 				"info": "t:labels.font_name_info"
 			},
 			{
-				"type": "text",
-				"id": "header_alternative_font_file",
-				"label": "t:labels.header_alternative_font_file",
-				"info": "t:labels.font_file_info",
-				"placeholder": "fonts/custom-header.woff2"
+				"type": "select",
+				"id": "header_alternative_font_extensions",
+				"label": "t:labels.font_extensions",
+				"info": "t:labels.font_extensions_info",
+				"options": [
+					{
+						"value": "woff2",
+						"label": "WOFF2"
+					},
+					{
+						"value": "woff",
+						"label": "WOFF"
+					},
+					{
+						"value": "ttf",
+						"label": "TTF"
+					},
+					{
+						"value": "eot",
+						"label": "EOT"
+					}
+				],
+				"default": ["woff2"],
+				"multiple": true
 			},
 			{
 				"type": "text",
@@ -54,11 +73,30 @@
 				"info": "t:labels.font_name_info"
 			},
 			{
-				"type": "text",
-				"id": "body_alternative_font_file",
-				"label": "t:labels.body_alternative_font_file",
-				"info": "t:labels.font_file_info",
-				"placeholder": "fonts/custom-body.woff2"
+				"type": "select",
+				"id": "body_alternative_font_extensions",
+				"label": "t:labels.font_extensions",
+				"info": "t:labels.font_extensions_info",
+				"options": [
+					{
+						"value": "woff2",
+						"label": "WOFF2"
+					},
+					{
+						"value": "woff",
+						"label": "WOFF"
+					},
+					{
+						"value": "ttf",
+						"label": "TTF"
+					},
+					{
+						"value": "eot",
+						"label": "EOT"
+					}
+				],
+				"default": ["woff2"],
+				"multiple": true
 			},
 			{
 				"type": "header",

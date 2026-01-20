@@ -25,20 +25,36 @@
   {% # ============================================ %}
   {% # Custom Font Loading - Header Alternative Font %}
   {% # ============================================ %}
-  {% if settings.header_alternative_font_file != blank and settings.header_alternative_font_name != blank %}
+  {% if settings.header_alternative_font_name != blank and settings.header_alternative_font_extensions != blank %}
     {% liquid
-      assign header_font_path = settings.header_alternative_font_file | strip
-      if header_font_path contains 'assets/'
-        assign header_font_path = header_font_path | remove_first: 'assets/'
-      endif
-      if header_font_path contains '/'
-        assign header_font_path = header_font_path | remove_first: '/'
-      endif
+      assign header_font_name = settings.header_alternative_font_name | strip
+      assign header_extensions = settings.header_alternative_font_extensions
+      assign src_list = ''
+      
+      for extension in header_extensions
+        assign font_file = header_font_name | append: '.' | append: extension
+        assign font_url = font_file | asset_url
+        
+        case extension
+          when 'woff2'
+            assign format = 'woff2'
+          when 'woff'
+            assign format = 'woff'
+          when 'ttf'
+            assign format = 'truetype'
+          when 'eot'
+            assign format = 'embedded-opentype'
+        endcase
+        
+        if src_list != blank
+          assign src_list = src_list | append: ', '
+        endif
+        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('" | append: format | append: "')"
+      endfor
     %}
     @font-face {
       font-family: '{{ settings.header_alternative_font_name }}';
-      src: url('{{ header_font_path | asset_url }}') format('woff2'),
-           url('{{ header_font_path | asset_url }}') format('woff');
+      src: {{ src_list }};
       font-display: swap;
       font-weight: normal;
       font-style: normal;
@@ -48,20 +64,36 @@
   {% # ============================================ %}
   {% # Custom Font Loading - Body Alternative Font %}
   {% # ============================================ %}
-  {% if settings.body_alternative_font_file != blank and settings.body_alternative_font_name != blank %}
+  {% if settings.body_alternative_font_name != blank and settings.body_alternative_font_extensions != blank %}
     {% liquid
-      assign body_font_path = settings.body_alternative_font_file | strip
-      if body_font_path contains 'assets/'
-        assign body_font_path = body_font_path | remove_first: 'assets/'
-      endif
-      if body_font_path contains '/'
-        assign body_font_path = body_font_path | remove_first: '/'
-      endif
+      assign body_font_name = settings.body_alternative_font_name | strip
+      assign body_extensions = settings.body_alternative_font_extensions
+      assign src_list = ''
+      
+      for extension in body_extensions
+        assign font_file = body_font_name | append: '.' | append: extension
+        assign font_url = font_file | asset_url
+        
+        case extension
+          when 'woff2'
+            assign format = 'woff2'
+          when 'woff'
+            assign format = 'woff'
+          when 'ttf'
+            assign format = 'truetype'
+          when 'eot'
+            assign format = 'embedded-opentype'
+        endcase
+        
+        if src_list != blank
+          assign src_list = src_list | append: ', '
+        endif
+        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('" | append: format | append: "')"
+      endfor
     %}
     @font-face {
       font-family: '{{ settings.body_alternative_font_name }}';
-      src: url('{{ body_font_path | asset_url }}') format('woff2'),
-           url('{{ body_font_path | asset_url }}') format('woff');
+      src: {{ src_list }};
       font-display: swap;
       font-weight: normal;
       font-style: normal;
