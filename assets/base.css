@@ -40,7 +40,7 @@ select {
 
 dialog {
 	background-color: var(--color-background);
-	color: var(--color-foreground);
+	color: var(--color-text);
 }
 
 p {
@@ -77,7 +77,7 @@ body {
 	line-height: var(--type-paragraph--line-height);
 	letter-spacing: var(--type-paragraph--letter-spacing);
 	background-color: var(--color-background);
-	color: var(--color-foreground);
+	color: var(--color-text);
 }
 
 /** Typography - Headings */
@@ -86,6 +86,7 @@ h1 {
 	font-size: var(--type-h1--size);
 	line-height: var(--type-h1--line-height);
 	letter-spacing: var(--type-h1--letter-spacing);
+	color: var(--color-headings);
 }
 
 h2 {
@@ -93,6 +94,7 @@ h2 {
 	font-size: var(--type-h2--size);
 	line-height: var(--type-h2--line-height);
 	letter-spacing: var(--type-h2--letter-spacing);
+	color: var(--color-headings);
 }
 
 h3 {
@@ -100,6 +102,7 @@ h3 {
 	font-size: var(--type-h3--size);
 	line-height: var(--type-h3--line-height);
 	letter-spacing: var(--type-h3--letter-spacing);
+	color: var(--color-headings);
 }
 
 h4 {
@@ -107,6 +110,7 @@ h4 {
 	font-size: var(--type-h4--size);
 	line-height: var(--type-h4--line-height);
 	letter-spacing: var(--type-h4--letter-spacing);
+	color: var(--color-headings);
 }
 
 h5 {
@@ -114,6 +118,7 @@ h5 {
 	font-size: var(--type-h5--size);
 	line-height: var(--type-h5--line-height);
 	letter-spacing: var(--type-h5--letter-spacing);
+	color: var(--color-headings);
 }
 
 h6 {
@@ -121,12 +126,30 @@ h6 {
 	font-size: var(--type-h6--size);
 	line-height: var(--type-h6--line-height);
 	letter-spacing: var(--type-h6--letter-spacing);
+	color: var(--color-headings);
 }
 
 /** Typography - Lists */
 ul li,
 ol li {
 	line-height: 1.8;
+	color: var(--color-text);
+}
+
+/** Typography - Links */
+a {
+	color: var(--color-links);
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	color: var(--color-hover-links);
+}
+
+/** Typography - Paragraphs */
+p {
+	color: var(--color-text);
 }
 
 /** Section layout utilities */
