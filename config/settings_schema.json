@@ -35,6 +35,10 @@
 				"content": "t:general.custom_fonts_description"
 			},
 			{
+				"type": "header",
+				"content": "t:labels.header_alternative_font"
+			},
+			{
 				"type": "text",
 				"id": "header_alternative_font_name",
 				"label": "t:labels.header_alternative_font_name",
@@ -71,6 +75,10 @@
 				"id": "header_alternative_font_eot",
 				"label": "EOT",
 				"default": false
+			},
+			{
+				"type": "header",
+				"content": "t:labels.body_alternative_font"
 			},
 			{
 				"type": "text",
