@@ -36,9 +36,8 @@
     "type_h1_font": "header",
     "type_h5_letter_spacing": 0,
     "max_page_width": "90rem",
-    "color_schemes": [
-      {
-        "name": "Default",
+    "color_schemes": {
+      "scheme-1": {
         "settings": {
           "background": "#FFFFFF",
           "text": "#333333",
@@ -54,7 +53,7 @@
           "secondary_button_border": "#000000"
         }
       }
-    ],
+    },
     "content_for_index": []
   }
 }
