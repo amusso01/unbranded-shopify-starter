@@ -132,8 +132,8 @@
         {%- endif -%}
 {%- if settings.header_alternative_font_weight_900_italic %}
 @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:900;font-style:italic;}
-        {% endif %}
-      {% endif %}
+{%- endif -%}
+{%- endif -%}
     {% else %}
       {% # Non-variable font: different file per weight (FontName-{weight}.woff2) %}
       {% # Generate normal weight @font-face declarations %}
@@ -235,8 +235,8 @@
         %}
         {% if has_extension %}
 @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:italic;}
-        {% endif %}
-      {% endif %}
+{%- endif -%}
+{%- endif -%}
       {% # Repeat for weights 200-900 (abbreviated for space, but same pattern) %}
       {% if settings.header_alternative_font_weight_200 %}
         {% liquid
@@ -328,8 +328,8 @@
         %}
         {% if has_extension %}
 @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:italic;}
-        {% endif %}
-      {% endif %}
+{%- endif -%}
+{%- endif -%}
       {% # Generate @font-face for weights 300-900 %}
       {% if settings.header_alternative_font_weight_300 %}
         {% liquid
@@ -421,8 +421,8 @@
         %}
         {% if has_extension %}
 @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:300;font-style:italic;}
-        {% endif %}
-      {% endif %}
+{%- endif -%}
+{%- endif -%}
       {% # Continue for 400-900 (using same pattern) %}
       {% if settings.header_alternative_font_weight_400 %}
         {% liquid
@@ -514,8 +514,8 @@
         %}
         {% if has_extension %}
 @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:400;font-style:italic;}
-        {% endif %}
-      {% endif %}
+{%- endif -%}
+{%- endif -%}
       {% # Generate remaining weights 500-900 (same pattern as above) %}
       {% assign remaining_weights = '500,600,700,800,900' | split: ',' %}
       {% for weight in remaining_weights %}
@@ -688,68 +688,68 @@
           assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
         endif
       %}
-      {% if has_extension %}
-        {% # Generate normal and italic weight @font-face declarations %}
-{%- if settings.body_alternative_font_weight_100 %}
+{%- if has_extension -%}
+{% # Generate normal and italic weight @font-face declarations -%}
+{%- if settings.body_alternative_font_weight_100 -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:normal;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_100_italic %}
+{%- if settings.body_alternative_font_weight_100_italic -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:italic;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_200 %}
+{%- if settings.body_alternative_font_weight_200 -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:normal;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_200_italic %}
+{%- if settings.body_alternative_font_weight_200_italic -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:italic;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_300 %}
+{%- if settings.body_alternative_font_weight_300 -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:300;font-style:normal;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_300_italic %}
+{%- if settings.body_alternative_font_weight_300_italic -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:300;font-style:italic;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_400 %}
+{%- if settings.body_alternative_font_weight_400 -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:400;font-style:normal;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_400_italic %}
+{%- if settings.body_alternative_font_weight_400_italic -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:400;font-style:italic;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_500 %}
+{%- if settings.body_alternative_font_weight_500 -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:500;font-style:normal;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_500_italic %}
+{%- if settings.body_alternative_font_weight_500_italic -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:500;font-style:italic;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_600 %}
+{%- if settings.body_alternative_font_weight_600 -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:600;font-style:normal;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_600_italic %}
+{%- if settings.body_alternative_font_weight_600_italic -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:600;font-style:italic;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_700 %}
+{%- if settings.body_alternative_font_weight_700 -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:700;font-style:normal;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_700_italic %}
+{%- if settings.body_alternative_font_weight_700_italic -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:700;font-style:italic;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_800 %}
+{%- if settings.body_alternative_font_weight_800 -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:800;font-style:normal;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_800_italic %}
+{%- if settings.body_alternative_font_weight_800_italic -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:800;font-style:italic;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_900 %}
+{%- if settings.body_alternative_font_weight_900 -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:900;font-style:normal;}
 {%- endif -%}
-{%- if settings.body_alternative_font_weight_900_italic %}
+{%- if settings.body_alternative_font_weight_900_italic -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:900;font-style:italic;}
-        {% endif %}
-      {% endif %}
-    {% else %}
+{%- endif -%}
+{%- endif -%}
+{%- else -%}
       {% # Non-variable font: different file per weight (FontName-{weight}.woff2) %}
       {% # Generate @font-face for weights 100-900 with normal and italic styles %}
-      {% if settings.body_alternative_font_weight_100 %}
-        {% liquid
+{%- if settings.body_alternative_font_weight_100 -%}
+{% liquid
           assign weight_suffix = '-' | append: '100'
           assign src_list = ''
           assign has_extension = false
@@ -789,12 +789,12 @@
             endif
             assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
           endif
-        %}
-        {% if has_extension %}
+%}
+{%- if has_extension -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:normal;}
-        {% endif %}
-      {% endif %}
-      {% if settings.body_alternative_font_weight_100_italic %}
+{%- endif -%}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_100_italic -%}
         {% liquid
           assign weight_suffix = '-' | append: '100-Italic'
           assign src_list = ''
@@ -836,12 +836,12 @@
             assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
           endif
         %}
-        {% if has_extension %}
+{%- if has_extension -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:italic;}
-        {% endif %}
-      {% endif %}
+{%- endif -%}
+{%- endif -%}
       {% # Generate remaining weights 200-900 using same pattern as header font %}
-      {% if settings.body_alternative_font_weight_200 %}
+{%- if settings.body_alternative_font_weight_200 -%}
         {% liquid
           assign weight_suffix = '-' | append: '200'
           assign src_list = ''
@@ -883,11 +883,11 @@
             assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
           endif
         %}
-        {% if has_extension %}
+{%- if has_extension -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:normal;}
         {% endif %}
-      {% endif %}
-      {% if settings.body_alternative_font_weight_200_italic %}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_200_italic %}
         {% liquid
           assign weight_suffix = '-' | append: '200-Italic'
           assign src_list = ''
@@ -929,10 +929,10 @@
             assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
           endif
         %}
-        {% if has_extension %}
+{%- if has_extension -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:italic;}
-        {% endif %}
-      {% endif %}
+{%- endif -%}
+{%- endif -%}
       {% # Generate weights 300-900 using loop pattern %}
       {% assign remaining_weights = '300,400,500,600,700,800,900' | split: ',' %}
       {% for weight in remaining_weights %}
@@ -1001,7 +1001,7 @@
               assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
             endif
           %}
-          {% if has_extension %}
+  {%- if has_extension -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:{{ weight }};font-style:normal;}
 {%- endif -%}
 {%- endif -%}
@@ -1050,8 +1050,8 @@
 {%- if has_extension -%}
 @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:{{ weight }};font-style:italic;}
 {%- endif -%}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  {% endif %}
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+{%- endif -%}
 {%- endstyle -%}
