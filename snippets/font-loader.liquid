@@ -28,7 +28,6 @@
     {% liquid
       assign header_font_name = settings.header_alternative_font_name | strip
       assign is_variable = settings.header_alternative_font_variable
-      assign weights = '100,200,300,400,500,600,700,800,900' | split: ','
     %}
     
     {% # Build src list for variable fonts (same file for all weights) %}
@@ -639,7 +638,6 @@
     {% liquid
       assign body_font_name = settings.body_alternative_font_name | strip
       assign is_variable = settings.body_alternative_font_variable
-      assign weights = '100,200,300,400,500,600,700,800,900' | split: ','
     %}
     
     {% # Build src list for variable fonts (same file for all weights) %}
