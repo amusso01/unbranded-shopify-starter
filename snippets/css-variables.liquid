@@ -3,7 +3,7 @@
     {% # ============================================ %}
     {% # Base Font Variables - Header & Body Fonts %}
     {% # ============================================ %}
-    {% if settings.header_alternative_font_name != blank and (settings.header_alternative_font_woff2 or settings.header_alternative_font_woff or settings.header_alternative_font_ttf or settings.header_alternative_font_eot) %}
+    {% if settings.header_alternative_font_name != blank %}
       --font-header--family: '{{ settings.header_alternative_font_name }}', {{ settings.type_header_font.fallback_families }};
     {% else %}
       --font-header--family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
@@ -11,7 +11,7 @@
     --font-header--style: {{ settings.type_header_font.style }};
     --font-header--weight: {{ settings.type_header_font.weight }};
 
-    {% if settings.body_alternative_font_name != blank and (settings.body_alternative_font_woff2 or settings.body_alternative_font_woff or settings.body_alternative_font_ttf or settings.body_alternative_font_eot) %}
+    {% if settings.body_alternative_font_name != blank %}
       --font-body--family: '{{ settings.body_alternative_font_name }}', {{ settings.type_body_font.fallback_families }};
     {% else %}
       --font-body--family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
