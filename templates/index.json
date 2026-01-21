@@ -11,7 +11,9 @@
   "sections": {
     "main": {
       "type": "hello-world",
-      "settings": {}
+      "settings": {
+        "color_scheme": "scheme-1"
+      }
     }
   },
   "order": [
