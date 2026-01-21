@@ -2,7 +2,10 @@
   Typography showcase section - displays all heading levels and text elements
 {% endcomment %}
 
-<div class="hello-world">
+{% assign color_scheme_id = section.settings.color_scheme | default: 'scheme-1' %}
+{% assign scheme_number = color_scheme_id | replace: 'scheme-', '' %}
+
+<div class="hello-world color-scheme-{{ scheme_number }}">
   <div class="shopify-section">
     <div class="hello-world__content">
       <h1>Heading 1 - The Main Title</h1>
@@ -50,7 +53,14 @@
 {% schema %}
 {
   "name": "Hello World",
-  "settings": [],
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:labels.color_scheme",
+      "default": "scheme-1"
+    }
+  ],
   "presets": [
     {
       "name": "Hello World"

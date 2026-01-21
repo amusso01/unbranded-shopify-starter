@@ -26,7 +26,7 @@
     --page-margin: {{ settings.min_page_margin }}px;
 
     {% # ============================================ %}
-    {% # Color Variables - Color Scheme %}
+    {% # Color Variables - Default Color Scheme %}
     {% # ============================================ %}
     {% assign color_scheme = settings.color_schemes.first %}
     --color-background: {{ color_scheme.settings.background }};
@@ -34,6 +34,13 @@
     --color-text: {{ color_scheme.settings.text }};
     --color-links: {{ color_scheme.settings.links }};
     --color-hover-links: {{ color_scheme.settings.hover_links }};
+    --color-icons: {{ color_scheme.settings.icons }};
+    --color-primary-button-background: {{ color_scheme.settings.primary_button_background }};
+    --color-primary-button-text: {{ color_scheme.settings.primary_button_text }};
+    --color-primary-button-border: {{ color_scheme.settings.primary_button_border }};
+    --color-secondary-button-background: {{ color_scheme.settings.secondary_button_background }};
+    --color-secondary-button-text: {{ color_scheme.settings.secondary_button_text }};
+    --color-secondary-button-border: {{ color_scheme.settings.secondary_button_border }};
 
     {% # ============================================ %}
     {% # Typography Variables - H1 Heading %}
@@ -91,4 +98,28 @@
     --type-paragraph--line-height: {{ settings.type_paragraph_line_height }}px;
     --type-paragraph--letter-spacing: {{ settings.type_paragraph_letter_spacing | times: 10 }}px;
   }
+
+  {% # ============================================ %}
+  {% # Color Scheme Classes %}
+  {% # ============================================ %}
+  {% for i in (1..10) %}
+    {% assign scheme_id = 'scheme-' | append: i %}
+    {% assign scheme = settings.color_schemes[scheme_id] %}
+    {% if scheme and scheme.settings %}
+      .color-scheme-{{ i }} {
+        --color-background: {{ scheme.settings.background }};
+        --color-headings: {{ scheme.settings.headings }};
+        --color-text: {{ scheme.settings.text }};
+        --color-links: {{ scheme.settings.links }};
+        --color-hover-links: {{ scheme.settings.hover_links }};
+        --color-icons: {{ scheme.settings.icons }};
+        --color-primary-button-background: {{ scheme.settings.primary_button_background }};
+        --color-primary-button-text: {{ scheme.settings.primary_button_text }};
+        --color-primary-button-border: {{ scheme.settings.primary_button_border }};
+        --color-secondary-button-background: {{ scheme.settings.secondary_button_background }};
+        --color-secondary-button-text: {{ scheme.settings.secondary_button_text }};
+        --color-secondary-button-border: {{ scheme.settings.secondary_button_border }};
+      }
+    {% endif %}
+  {% endfor %}
 {% endstyle %}
