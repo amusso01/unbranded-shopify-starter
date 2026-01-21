@@ -29,7 +29,7 @@
     "header_font": "Header font",
     "body_font": "Body font",
     "custom_fonts": "Custom fonts",
-    "custom_fonts_description": "Upload your font files to the assets folder. Enter the font name (spelling and capitalization matter) and select the file extensions you've uploaded.",
+    "custom_fonts_description": "Upload your font files to the assets folder. Enter the font name (spelling and capitalization matter) and select the file extensions you've uploaded. For non-variable fonts, use this naming pattern: FontName-{weight}.woff2 for normal styles (e.g., FontName-400.woff2) and FontName-{weight}-Italic.woff2 for italic styles (e.g., FontName-400-Italic.woff2).",
     "layout": "Layout",
     "logo_and_favicon": "Logo and favicon",
     "main": "Main",
