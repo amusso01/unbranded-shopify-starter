@@ -977,7 +977,7 @@
 				"default": 4
 			},
 			{
-				"type": "number",
+				"type": "range",
 				"id": "button_font_weight",
 				"label": "t:labels.font_weight",
 				"info": "t:labels.font_weight_info",
