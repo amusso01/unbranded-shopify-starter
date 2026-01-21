@@ -52,34 +52,6 @@
 				"default": true
 			},
 			{
-				"type": "select",
-				"id": "header_alternative_font_naming_pattern",
-				"label": "t:labels.font_naming_pattern",
-				"info": "t:labels.font_naming_pattern_info",
-				"options": [
-					{
-						"value": "weight",
-						"label": "t:options.naming_pattern.weight"
-					},
-					{
-						"value": "name",
-						"label": "t:options.naming_pattern.name"
-					},
-					{
-						"value": "custom",
-						"label": "t:options.naming_pattern.custom"
-					}
-				],
-				"default": "weight"
-			},
-			{
-				"type": "text",
-				"id": "header_alternative_font_custom_pattern",
-				"label": "t:labels.custom_naming_pattern",
-				"info": "t:labels.custom_naming_pattern_info",
-				"placeholder": "FontName-{weight}"
-			},
-			{
 				"type": "header",
 				"content": "t:labels.font_extensions"
 			},
@@ -127,8 +99,20 @@
 			},
 			{
 				"type": "checkbox",
+				"id": "header_alternative_font_weight_100_italic",
+				"label": "100 (Thin) Italic",
+				"default": false
+			},
+			{
+				"type": "checkbox",
 				"id": "header_alternative_font_weight_200",
 				"label": "200 (Extra Light)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_weight_200_italic",
+				"label": "200 (Extra Light) Italic",
 				"default": false
 			},
 			{
@@ -139,14 +123,32 @@
 			},
 			{
 				"type": "checkbox",
+				"id": "header_alternative_font_weight_300_italic",
+				"label": "300 (Light) Italic",
+				"default": false
+			},
+			{
+				"type": "checkbox",
 				"id": "header_alternative_font_weight_400",
 				"label": "400 (Normal)",
 				"default": true
 			},
 			{
 				"type": "checkbox",
+				"id": "header_alternative_font_weight_400_italic",
+				"label": "400 (Normal) Italic",
+				"default": false
+			},
+			{
+				"type": "checkbox",
 				"id": "header_alternative_font_weight_500",
 				"label": "500 (Medium)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_weight_500_italic",
+				"label": "500 (Medium) Italic",
 				"default": false
 			},
 			{
@@ -157,8 +159,20 @@
 			},
 			{
 				"type": "checkbox",
+				"id": "header_alternative_font_weight_600_italic",
+				"label": "600 (Semi Bold) Italic",
+				"default": false
+			},
+			{
+				"type": "checkbox",
 				"id": "header_alternative_font_weight_700",
 				"label": "700 (Bold)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_weight_700_italic",
+				"label": "700 (Bold) Italic",
 				"default": false
 			},
 			{
@@ -169,8 +183,20 @@
 			},
 			{
 				"type": "checkbox",
+				"id": "header_alternative_font_weight_800_italic",
+				"label": "800 (Extra Bold) Italic",
+				"default": false
+			},
+			{
+				"type": "checkbox",
 				"id": "header_alternative_font_weight_900",
 				"label": "900 (Black)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_weight_900_italic",
+				"label": "900 (Black) Italic",
 				"default": false
 			},
 			{
@@ -189,34 +215,6 @@
 				"label": "t:labels.variable_font",
 				"info": "t:labels.variable_font_info",
 				"default": true
-			},
-			{
-				"type": "select",
-				"id": "body_alternative_font_naming_pattern",
-				"label": "t:labels.font_naming_pattern",
-				"info": "t:labels.font_naming_pattern_info",
-				"options": [
-					{
-						"value": "weight",
-						"label": "t:options.naming_pattern.weight"
-					},
-					{
-						"value": "name",
-						"label": "t:options.naming_pattern.name"
-					},
-					{
-						"value": "custom",
-						"label": "t:options.naming_pattern.custom"
-					}
-				],
-				"default": "weight"
-			},
-			{
-				"type": "text",
-				"id": "body_alternative_font_custom_pattern",
-				"label": "t:labels.custom_naming_pattern",
-				"info": "t:labels.custom_naming_pattern_info",
-				"placeholder": "FontName-{weight}"
 			},
 			{
 				"type": "header",
@@ -266,8 +264,20 @@
 			},
 			{
 				"type": "checkbox",
+				"id": "body_alternative_font_weight_100_italic",
+				"label": "100 (Thin) Italic",
+				"default": false
+			},
+			{
+				"type": "checkbox",
 				"id": "body_alternative_font_weight_200",
 				"label": "200 (Extra Light)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_weight_200_italic",
+				"label": "200 (Extra Light) Italic",
 				"default": false
 			},
 			{
@@ -278,14 +288,32 @@
 			},
 			{
 				"type": "checkbox",
+				"id": "body_alternative_font_weight_300_italic",
+				"label": "300 (Light) Italic",
+				"default": false
+			},
+			{
+				"type": "checkbox",
 				"id": "body_alternative_font_weight_400",
 				"label": "400 (Normal)",
 				"default": true
 			},
 			{
 				"type": "checkbox",
+				"id": "body_alternative_font_weight_400_italic",
+				"label": "400 (Normal) Italic",
+				"default": false
+			},
+			{
+				"type": "checkbox",
 				"id": "body_alternative_font_weight_500",
 				"label": "500 (Medium)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_weight_500_italic",
+				"label": "500 (Medium) Italic",
 				"default": false
 			},
 			{
@@ -296,8 +324,20 @@
 			},
 			{
 				"type": "checkbox",
+				"id": "body_alternative_font_weight_600_italic",
+				"label": "600 (Semi Bold) Italic",
+				"default": false
+			},
+			{
+				"type": "checkbox",
 				"id": "body_alternative_font_weight_700",
 				"label": "700 (Bold)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_weight_700_italic",
+				"label": "700 (Bold) Italic",
 				"default": false
 			},
 			{
@@ -308,8 +348,20 @@
 			},
 			{
 				"type": "checkbox",
+				"id": "body_alternative_font_weight_800_italic",
+				"label": "800 (Extra Bold) Italic",
+				"default": false
+			},
+			{
+				"type": "checkbox",
 				"id": "body_alternative_font_weight_900",
 				"label": "900 (Black)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_weight_900_italic",
+				"label": "900 (Black) Italic",
 				"default": false
 			},
 			{
