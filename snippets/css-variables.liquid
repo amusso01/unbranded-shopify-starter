@@ -1,7 +1,19 @@
 {% style %}
+  {% # ============================================ %}
+  {% # CSS Variables Generator %}
+  {% # ============================================ %}
+  {% # This file generates all CSS custom properties (variables) used throughout the theme. %}
+  {% # Variables are defined in :root for global defaults and in color scheme classes %}
+  {% # for theme-specific color variations. %}
+  {% # ============================================ %}
+
   :root {
     {% # ============================================ %}
     {% # Base Font Variables - Header & Body Fonts %}
+    {% # ============================================ %}
+    {% # These variables define the base font families, styles, and weights %}
+    {% # that are used throughout the theme. They support both Shopify's %}
+    {% # built-in font picker and custom uploaded fonts. %}
     {% # ============================================ %}
     {% if settings.header_alternative_font_name != blank %}
       --font-header--family: '{{ settings.header_alternative_font_name }}', {{ settings.type_header_font.fallback_families }};
@@ -22,11 +34,18 @@
     {% # ============================================ %}
     {% # Layout Variables - Page Width & Margins %}
     {% # ============================================ %}
+    {% # Controls the maximum content width and minimum side margins %}
+    {% # Used by .shopify-section grid layout for responsive content constraints %}
+    {% # ============================================ %}
     --page-width: {{ settings.max_page_width }};
     --page-margin: {{ settings.min_page_margin }}px;
 
     {% # ============================================ %}
     {% # Typography Variables - H1 Heading %}
+    {% # ============================================ %}
+    {% # Typography settings for H1 elements. Font family can be either %}
+    {% # header or body font depending on theme settings. Letter spacing %}
+    {% # is multiplied by 10 to convert from em units to pixels. %}
     {% # ============================================ %}
     --type-h1--family: {% if settings.type_h1_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
     --type-h1--size: {{ settings.type_h1_size }}px;
@@ -36,6 +55,8 @@
     {% # ============================================ %}
     {% # Typography Variables - H2 Heading %}
     {% # ============================================ %}
+    {% # Typography settings for H2 elements. Same structure as H1. %}
+    {% # ============================================ %}
     --type-h2--family: {% if settings.type_h2_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
     --type-h2--size: {{ settings.type_h2_size }}px;
     --type-h2--line-height: {{ settings.type_h2_line_height }}px;
@@ -43,6 +64,8 @@
 
     {% # ============================================ %}
     {% # Typography Variables - H3 Heading %}
+    {% # ============================================ %}
+    {% # Typography settings for H3 elements. %}
     {% # ============================================ %}
     --type-h3--family: {% if settings.type_h3_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
     --type-h3--size: {{ settings.type_h3_size }}px;
@@ -52,6 +75,8 @@
     {% # ============================================ %}
     {% # Typography Variables - H4 Heading %}
     {% # ============================================ %}
+    {% # Typography settings for H4 elements. %}
+    {% # ============================================ %}
     --type-h4--family: {% if settings.type_h4_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
     --type-h4--size: {{ settings.type_h4_size }}px;
     --type-h4--line-height: {{ settings.type_h4_line_height }}px;
@@ -59,6 +84,8 @@
 
     {% # ============================================ %}
     {% # Typography Variables - H5 Heading %}
+    {% # ============================================ %}
+    {% # Typography settings for H5 elements. %}
     {% # ============================================ %}
     --type-h5--family: {% if settings.type_h5_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
     --type-h5--size: {{ settings.type_h5_size }}px;
@@ -68,6 +95,8 @@
     {% # ============================================ %}
     {% # Typography Variables - H6 Heading %}
     {% # ============================================ %}
+    {% # Typography settings for H6 elements. %}
+    {% # ============================================ %}
     --type-h6--family: {% if settings.type_h6_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
     --type-h6--size: {{ settings.type_h6_size }}px;
     --type-h6--line-height: {{ settings.type_h6_line_height }}px;
@@ -75,6 +104,8 @@
 
     {% # ============================================ %}
     {% # Typography Variables - Paragraph %}
+    {% # ============================================ %}
+    {% # Base typography for paragraph text. Always uses body font family. %}
     {% # ============================================ %}
     --type-paragraph--family: var(--font-body--family);
     --type-paragraph--size: {{ settings.type_paragraph_size }}px;
@@ -85,31 +116,79 @@
   {% # ============================================ %}
   {% # Color Scheme Classes %}
   {% # ============================================ %}
+  {% # Generates CSS classes for each color scheme defined in the theme settings. %}
+  {% # Each scheme gets a class like .color-scheme-1 or .color-scheme-{uuid} %}
+  {% # that contains all color variables for that specific scheme. %}
+  {% # %}
+  {% # How it works: %}
+  {% # 1. Loops through all color schemes (both numbered and UUID-based) %}
+  {% # 2. Creates a class selector for each scheme %}
+  {% # 3. Defines color variables within each class %}
+  {% # 4. First scheme also applies to :root as the default %}
+  {% # 5. Builds a selector string to apply base colors to body and all scheme classes %}
+  {% # %}
+  {% # Usage: Apply a color scheme class to any element: %}
+  {% # <div class="color-scheme-1">...</div> %}
+  {% # ============================================ %}
   {% assign scheme_classes = '' %}
   {% for scheme in settings.color_schemes %}
+    {% # Build selector string for body rule (e.g., "body, .color-scheme-1, .color-scheme-2") %}
     {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+    {% # Apply first scheme to :root as default fallback %}
     {% if forloop.index == 1 %}
       :root,
     {% endif %}
+    {% # Generate class for this color scheme %}
+    {% # Works for both numbered schemes (scheme-1) and UUID-based schemes (scheme-0b523d59-...) %}
     .color-{{ scheme.id }} {
+      {% # ============================================ %}
+      {% # Base Colors %}
+      {% # ============================================ %}
+      {% # Full color values (hex, rgba, etc.) - used for direct color application %}
       --color-background: {{ scheme.settings.background }};
-      --color-background-rgb: {{ scheme.settings.background.rgb }};
       --color-headings: {{ scheme.settings.headings }};
-      --color-headings-rgb: {{ scheme.settings.headings.rgb }};
       --color-text: {{ scheme.settings.text }};
-      --color-text-rgb: {{ scheme.settings.text.rgb }};
       --color-links: {{ scheme.settings.links }};
-      --color-links-rgb: {{ scheme.settings.links.rgb }};
       --color-hover-links: {{ scheme.settings.hover_links }};
-      --color-hover-links-rgb: {{ scheme.settings.hover_links.rgb }};
       --color-icons: {{ scheme.settings.icons }};
+
+      {% # ============================================ %}
+      {% # RGB Color Values (for opacity support) %}
+      {% # ============================================ %}
+      {% # RGB-only values (e.g., "255, 255, 255") extracted from color objects. %}
+      {% # Shopify color objects automatically provide .rgb property. %}
+      {% # %}
+      {% # Future uses: %}
+      {% # - Creating semi-transparent overlays: rgb(var(--color-text-rgb) / 0.5) %}
+      {% # - Disabled states with reduced opacity %}
+      {% # - Hover effects with transparency %}
+      {% # - Background overlays and shadows %}
+      {% # - Better browser compatibility (iOS < 16.4 doesn't support relative color syntax) %}
+      {% # %}
+      {% # Example usage: %}
+      {% # background: rgb(var(--color-background-rgb) / 0.9); %}
+      {% # border: 1px solid rgb(var(--color-border-rgb) / 0.3); %}
+      {% # ============================================ %}
+      --color-background-rgb: {{ scheme.settings.background.rgb }};
+      --color-headings-rgb: {{ scheme.settings.headings.rgb }};
+      --color-text-rgb: {{ scheme.settings.text.rgb }};
+      --color-links-rgb: {{ scheme.settings.links.rgb }};
+      --color-hover-links-rgb: {{ scheme.settings.hover_links.rgb }};
       --color-icons-rgb: {{ scheme.settings.icons.rgb }};
+
+      {% # ============================================ %}
+      {% # Primary Button Colors %}
+      {% # ============================================ %}
       --color-primary-button-background: {{ scheme.settings.primary_button_background }};
       --color-primary-button-background-rgb: {{ scheme.settings.primary_button_background.rgb }};
       --color-primary-button-text: {{ scheme.settings.primary_button_text }};
       --color-primary-button-text-rgb: {{ scheme.settings.primary_button_text.rgb }};
       --color-primary-button-border: {{ scheme.settings.primary_button_border }};
       --color-primary-button-border-rgb: {{ scheme.settings.primary_button_border.rgb }};
+
+      {% # ============================================ %}
+      {% # Secondary Button Colors %}
+      {% # ============================================ %}
       --color-secondary-button-background: {{ scheme.settings.secondary_button_background }};
       --color-secondary-button-background-rgb: {{ scheme.settings.secondary_button_background.rgb }};
       --color-secondary-button-text: {{ scheme.settings.secondary_button_text }};
@@ -119,6 +198,16 @@
     }
   {% endfor %}
 
+  {% # ============================================ %}
+  {% # Body and Color Scheme Base Styles %}
+  {% # ============================================ %}
+  {% # Applies base text and background colors to body and all color scheme classes. %}
+  {% # The selector string is built dynamically (e.g., "body, .color-scheme-1, .color-scheme-2") %}
+  {% # This ensures that: %}
+  {% # - Body element gets default colors from :root (first scheme) %}
+  {% # - Elements with color scheme classes get their specific colors %}
+  {% # - CSS variables cascade correctly within each color scheme context %}
+  {% # ============================================ %}
   {{ scheme_classes | prepend: 'body' }} {
     color: var(--color-text);
     background-color: var(--color-background);

@@ -1,11 +1,30 @@
-/** Base CSS for the theme. This file is included on every page. */
+/**
+ * Base CSS for the theme. This file is included on every page.
+ *
+ * This file contains:
+ * - CSS reset and normalization
+ * - Base typography styles using CSS variables
+ * - Color scheme integration via CSS custom properties
+ * - Layout utilities for sections
+ *
+ * All colors are controlled through CSS variables defined in css-variables.liquid,
+ * which allows for dynamic color scheme switching via classes like .color-scheme-1
+ */
 
+/* ============================================ */
+/* CSS Reset */
+/* ============================================ */
 /* Reset styles inspired by https://www.joshwcomeau.com/css/custom-css-reset/ */
+/* Normalizes default browser styles for consistent rendering across browsers */
 * {
 	box-sizing: border-box;
 	margin: 0;
 }
 
+/* ============================================ */
+/* Layout Reset */
+/* ============================================ */
+/* Sets up body as flex container for sticky footer patterns */
 body {
 	display: flex;
 	flex-direction: column;
@@ -13,10 +32,15 @@ body {
 	min-height: 100svh;
 }
 
+/* Prevents page scrolling when modals/dialogs are open */
 html:has(dialog[scroll-lock][open], details[scroll-lock][open]) {
 	overflow: hidden;
 }
 
+/* ============================================ */
+/* Media Elements */
+/* ============================================ */
+/* Ensures images and media are responsive and don't overflow containers */
 img,
 picture,
 video,
@@ -27,25 +51,37 @@ svg {
 	height: auto;
 }
 
+/* ============================================ */
+/* Form Elements */
+/* ============================================ */
+/* Inherits font from parent for consistent typography */
 input,
 textarea,
 select {
 	font: inherit;
 }
 
+/* Select elements use theme background color */
 select {
 	background-color: var(--color-background);
 	color: currentcolor;
 }
 
+/* Dialog elements use theme colors */
 dialog {
 	background-color: var(--color-background);
 	color: var(--color-text);
 }
 
+/* ============================================ */
+/* Typography Reset */
+/* ============================================ */
+/* Improves text wrapping for better readability */
 p {
 	text-wrap: pretty;
 }
+
+/* Prevents text overflow in headings and paragraphs */
 p,
 h1,
 h2,
@@ -56,31 +92,46 @@ h6 {
 	overflow-wrap: break-word;
 }
 
+/* Hides empty paragraphs */
 p:empty {
 	display: none;
 }
 
+/* Removes top margin from first text element */
 :is(p, h1, h2, h3, h4, h5, h6):first-child,
 :empty:first-child + :where(p, h1, h2, h3, h4, h5, h6) {
 	margin-block-start: 0;
 }
 
+/* Removes bottom margin from last text element */
 :is(p, h1, h2, h3, h4, h5, h6):last-child,
 :where(p, h1, h2, h3, h4, h5, h6) + :has(+ :empty:last-child) {
 	margin-block-end: 0;
 }
 
-/** Theme styles below */
+/* ============================================ */
+/* Theme Base Styles */
+/* ============================================ */
+/* Applies base typography to body element. */
+/* Colors (color and background-color) are handled by css-variables.liquid */
+/* which sets them on body and all color scheme classes. */
+/* When a color scheme class is applied to a parent element, */
+/* color variables will cascade down from that scheme's class. */
 body {
 	font-family: var(--type-paragraph--family);
 	font-size: var(--type-paragraph--size);
 	line-height: var(--type-paragraph--line-height);
 	letter-spacing: var(--type-paragraph--letter-spacing);
-	background-color: var(--color-background);
-	color: var(--color-text);
+	/* Note: color and background-color are set in css-variables.liquid */
 }
 
-/** Typography - Headings */
+/* ============================================ */
+/* Typography - Headings */
+/* ============================================ */
+/* All headings use the --color-headings variable, which is defined */
+/* in each color scheme class. When a color scheme class is applied, */
+/* headings within that context will use that scheme's heading color. */
+/* Typography settings (font, size, spacing) come from theme settings. */
 h1 {
 	font-family: var(--type-h1--family);
 	font-size: var(--type-h1--size);
@@ -129,14 +180,22 @@ h6 {
 	color: var(--color-headings);
 }
 
-/** Typography - Lists */
+/* ============================================ */
+/* Typography - Lists */
+/* ============================================ */
+/* List items inherit text color from body (set in css-variables.liquid) */
 ul li,
 ol li {
 	line-height: 1.8;
-	color: var(--color-text);
+	/* color inherits from body via css-variables.liquid */
 }
 
-/** Typography - Links */
+/* ============================================ */
+/* Typography - Links */
+/* ============================================ */
+/* Links use --color-links for default state and --color-hover-links for hover/focus. */
+/* These variables are scoped to color scheme classes, so links will automatically */
+/* match the color scheme of their parent container. */
 a {
 	color: var(--color-links);
 	text-decoration: none;
@@ -147,16 +206,31 @@ a:focus {
 	color: var(--color-hover-links);
 }
 
-/** Typography - Paragraphs */
+/* ============================================ */
+/* Typography - Paragraphs */
+/* ============================================ */
+/* Paragraphs inherit text color from body (set in css-variables.liquid). */
+/* The color adapts to the color scheme of the parent element via CSS variable inheritance. */
 p {
-	color: var(--color-text);
+	/* color inherits from body via css-variables.liquid */
 }
 
-/** Section layout utilities */
-
+/* ============================================ */
+/* Section Layout Utilities */
+/* ============================================ */
 /**
  * Setup a grid that enables both full-width and constrained layouts
  * depending on the class of the child elements.
+ *
+ * How it works:
+ * - Creates a 3-column grid: [margin] [content] [margin]
+ * - Content width is constrained by --page-width and --page-margin variables
+ * - By default, child elements are placed in the center column (constrained)
+ * - Elements with .full-width class span all columns (full viewport width)
+ *
+ * Variables used:
+ * - --page-width: Maximum content width (from theme settings)
+ * - --page-margin: Minimum side margin (from theme settings)
  *
  * By default, a minimum content margin is set on the left and right
  * sides of the section and the content is centered in the viewport to
@@ -181,12 +255,17 @@ p {
 	width: 100%;
 }
 
+/* ============================================ */
+/* Section Content Layout */
+/* ============================================ */
 /* Child elements, by default, are constrained to the central column of the grid. */
+/* This creates the centered, max-width content layout. */
 .shopify-section > * {
 	grid-column: 2;
 }
 
 /* Child elements that use the full-width utility class span the entire viewport. */
+/* Useful for hero sections, backgrounds, or elements that need edge-to-edge display. */
 .shopify-section > .full-width {
 	grid-column: 1 / -1;
 }
