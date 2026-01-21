@@ -867,32 +867,27 @@
 			{
 				"type": "text",
 				"id": "social_facebook_url",
-				"label": "t:labels.facebook_url",
-				"default": ""
+				"label": "t:labels.facebook_url"
 			},
 			{
 				"type": "text",
 				"id": "social_instagram_url",
-				"label": "t:labels.instagram_url",
-				"default": ""
+				"label": "t:labels.instagram_url"
 			},
 			{
 				"type": "text",
 				"id": "social_x_url",
-				"label": "t:labels.x_url",
-				"default": ""
+				"label": "t:labels.x_url"
 			},
 			{
 				"type": "text",
 				"id": "social_tiktok_url",
-				"label": "t:labels.tiktok_url",
-				"default": ""
+				"label": "t:labels.tiktok_url"
 			},
 			{
 				"type": "text",
 				"id": "social_youtube_url",
-				"label": "t:labels.youtube_url",
-				"default": ""
+				"label": "t:labels.youtube_url"
 			}
 		]
 	}
