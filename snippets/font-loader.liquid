@@ -5,26 +5,21 @@
   {% render 'font-loader' %}
 {% enddoc %}
 
-{% style %}
-  {% # ============================================ %}
-  {% # Font Loading - Loads all font variations with display: swap %}
-  {% # ============================================ %}
-  
-  {% # Load default header font (only if no alternative font is set) %}
-  {% unless settings.header_alternative_font_name != blank %}
-    {{ settings.type_header_font | font_face: font_display: 'swap' }}
-    {{ settings.type_header_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
-    {{ settings.type_header_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
-    {{ settings.type_header_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
-  {% endunless %}
-
-  {% # Load default body font (only if no alternative font is set) %}
-  {% unless settings.body_alternative_font_name != blank %}
-    {{ settings.type_body_font | font_face: font_display: 'swap' }}
-    {{ settings.type_body_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
-    {{ settings.type_body_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
-    {{ settings.type_body_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
-  {% endunless %}
+{% style -%}
+{% # Load default header font (only if no alternative font is set) -%}
+{%- unless settings.header_alternative_font_name != blank -%}
+{{ settings.type_header_font | font_face: font_display: 'swap' }}
+{{ settings.type_header_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
+{{ settings.type_header_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+{{ settings.type_header_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+{%- endunless -%}
+{% # Load default body font (only if no alternative font is set) -%}
+{%- unless settings.body_alternative_font_name != blank -%}
+{{ settings.type_body_font | font_face: font_display: 'swap' }}
+{{ settings.type_body_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
+{{ settings.type_body_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+{{ settings.type_body_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+{%- endunless -%}
 
   {% # ============================================ %}
   {% # Custom Font Loading - Header Alternative Font %}
@@ -84,73 +79,59 @@
       %}
       {% if has_extension %}
         {% # Generate normal weight @font-face declarations %}
-        {% if settings.header_alternative_font_weight_100 %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:normal;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_100_italic %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:italic;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_200 %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:normal;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_200_italic %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:italic;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_300 %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 300;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_300_italic %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 300;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_400 %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 400;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_400_italic %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 400;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_500 %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 500;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_500_italic %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 500;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_600 %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 600;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_600_italic %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 600;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_700 %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 700;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_700_italic %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 700;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_800 %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 800;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_800_italic %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 800;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_900 %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 900;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.header_alternative_font_weight_900_italic %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 900;
-            font-style:italic;}
+        {%- if settings.header_alternative_font_weight_100 -%}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:normal;}
+{%- endif -%}
+        {%- if settings.header_alternative_font_weight_100_italic -%}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:italic;}
+{%- endif -%}
+{%- if settings.header_alternative_font_weight_200 -%}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:normal;}
+        {%- endif -%}
+{%- if settings.header_alternative_font_weight_200_italic -%}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:italic;}
+{%- endif -%}
+{%- if settings.header_alternative_font_weight_300 -%}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:300;font-style:normal;}
+{%- endif -%}
+{%- if settings.header_alternative_font_weight_300_italic %}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:300;font-style:italic;}
+        {%- endif -%}
+{%- if settings.header_alternative_font_weight_400 %}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:400;font-style:normal;}
+        {%- endif -%}
+{%- if settings.header_alternative_font_weight_400_italic %}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:400;font-style:italic;}
+        {%- endif -%}
+{%- if settings.header_alternative_font_weight_500 %}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:500;font-style:normal;}
+        {%- endif -%}
+{%- if settings.header_alternative_font_weight_500_italic %}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:500;font-style:italic;}
+        {%- endif -%}
+{%- if settings.header_alternative_font_weight_600 %}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:600;font-style:normal;}
+        {%- endif -%}
+{%- if settings.header_alternative_font_weight_600_italic %}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:600;font-style:italic;}
+        {%- endif -%}
+{%- if settings.header_alternative_font_weight_700 %}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:700;font-style:normal;}
+        {%- endif -%}
+{%- if settings.header_alternative_font_weight_700_italic %}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:700;font-style:italic;}
+        {%- endif -%}
+{%- if settings.header_alternative_font_weight_800 %}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:800;font-style:normal;}
+        {%- endif -%}
+{%- if settings.header_alternative_font_weight_800_italic %}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:800;font-style:italic;}
+        {%- endif -%}
+{%- if settings.header_alternative_font_weight_900 %}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:900;font-style:normal;}
+        {%- endif -%}
+{%- if settings.header_alternative_font_weight_900_italic %}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:900;font-style:italic;}
         {% endif %}
       {% endif %}
     {% else %}
@@ -203,10 +184,10 @@
           endif
         %}
         {% if has_extension %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:normal;}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:normal;}
         {% endif %}
-      {% endif %}
-      {% if settings.header_alternative_font_weight_100_italic %}
+{%- endif -%}
+{%- if settings.header_alternative_font_weight_100_italic %}
         {% liquid
           assign weight_suffix = '-' | append: '100-Italic'
           assign src_list = ''
@@ -253,7 +234,7 @@
           endif
         %}
         {% if has_extension %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:italic;}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:italic;}
         {% endif %}
       {% endif %}
       {% # Repeat for weights 200-900 (abbreviated for space, but same pattern) %}
@@ -300,10 +281,10 @@
           endif
         %}
         {% if has_extension %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:normal;}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:normal;}
         {% endif %}
-      {% endif %}
-      {% if settings.header_alternative_font_weight_200_italic %}
+{%- endif -%}
+{%- if settings.header_alternative_font_weight_200_italic -%}
         {% liquid
           assign weight_suffix = '-' | append: '200-Italic'
           assign src_list = ''
@@ -346,7 +327,7 @@
           endif
         %}
         {% if has_extension %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:italic;}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:italic;}
         {% endif %}
       {% endif %}
       {% # Generate @font-face for weights 300-900 %}
@@ -393,11 +374,10 @@
           endif
         %}
         {% if has_extension %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 300;
-            font-style:normal;}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:300;font-style:normal;}
         {% endif %}
-      {% endif %}
-      {% if settings.header_alternative_font_weight_300_italic %}
+{%- endif -%}
+{%- if settings.header_alternative_font_weight_300_italic %}
         {% liquid
           assign weight_suffix = '-' | append: '300-Italic'
           assign src_list = ''
@@ -440,8 +420,7 @@
           endif
         %}
         {% if has_extension %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 300;
-            font-style:italic;}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:300;font-style:italic;}
         {% endif %}
       {% endif %}
       {% # Continue for 400-900 (using same pattern) %}
@@ -488,11 +467,10 @@
           endif
         %}
         {% if has_extension %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 400;
-            font-style:normal;}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:400;font-style:normal;}
         {% endif %}
-      {% endif %}
-      {% if settings.header_alternative_font_weight_400_italic %}
+{%- endif -%}
+{%- if settings.header_alternative_font_weight_400_italic %}
         {% liquid
           assign weight_suffix = '-' | append: '400-Italic'
           assign src_list = ''
@@ -535,8 +513,7 @@
           endif
         %}
         {% if has_extension %}
-          @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 400;
-            font-style:italic;}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:400;font-style:italic;}
         {% endif %}
       {% endif %}
       {% # Generate remaining weights 500-900 (same pattern as above) %}
@@ -602,11 +579,11 @@
             endif
           %}
           {% if has_extension %}
-            @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:{{ weight }};font-style:normal;}
-          {% endif %}
-        {% endif %}
-        {% if italic_selected %}
-          {% liquid
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:{{ weight }};font-style:normal;}
+{%- endif -%}
+{%- endif -%}
+{%- if italic_selected -%}
+{% liquid
             assign weight_suffix = '-' | append: weight | append: '-Italic'
             assign src_list = ''
             assign has_extension = false
@@ -647,9 +624,9 @@
               assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
             endif
           %}
-          {% if has_extension %}
-            @font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:{{ weight }};font-style:italic;}
-          {% endif %}
+{%- if has_extension -%}
+@font-face{font-family:'{{ settings.header_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:{{ weight }};font-style:italic;}
+{%- endif -%}
         {% endif %}
       {% endfor %}
     {% endif %}
@@ -713,77 +690,59 @@
       %}
       {% if has_extension %}
         {% # Generate normal and italic weight @font-face declarations %}
-        {% if settings.body_alternative_font_weight_100 %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 100;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_100_italic %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 100;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_200 %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 200;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_200_italic %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 200;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_300 %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 300;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_300_italic %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 300;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_400 %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 400;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_400_italic %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 400;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_500 %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 500;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_500_italic %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 500;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_600 %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 600;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_600_italic %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 600;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_700 %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 700;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_700_italic %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 700;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_800 %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 800;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_800_italic %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 800;
-            font-style:italic;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_900 %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 900;
-            font-style:normal;}
-        {% endif %}
-        {% if settings.body_alternative_font_weight_900_italic %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 900;
-            font-style:italic;}
+{%- if settings.body_alternative_font_weight_100 %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:normal;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_100_italic %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:italic;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_200 %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:normal;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_200_italic %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:italic;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_300 %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:300;font-style:normal;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_300_italic %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:300;font-style:italic;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_400 %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:400;font-style:normal;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_400_italic %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:400;font-style:italic;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_500 %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:500;font-style:normal;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_500_italic %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:500;font-style:italic;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_600 %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:600;font-style:normal;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_600_italic %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:600;font-style:italic;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_700 %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:700;font-style:normal;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_700_italic %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:700;font-style:italic;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_800 %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:800;font-style:normal;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_800_italic %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:800;font-style:italic;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_900 %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:900;font-style:normal;}
+{%- endif -%}
+{%- if settings.body_alternative_font_weight_900_italic %}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:900;font-style:italic;}
         {% endif %}
       {% endif %}
     {% else %}
@@ -832,8 +791,7 @@
           endif
         %}
         {% if has_extension %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 100;
-            font-style:normal;}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:normal;}
         {% endif %}
       {% endif %}
       {% if settings.body_alternative_font_weight_100_italic %}
@@ -879,8 +837,7 @@
           endif
         %}
         {% if has_extension %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 100;
-            font-style:italic;}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:100;font-style:italic;}
         {% endif %}
       {% endif %}
       {% # Generate remaining weights 200-900 using same pattern as header font %}
@@ -927,8 +884,7 @@
           endif
         %}
         {% if has_extension %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 200;
-            font-style:normal;}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:normal;}
         {% endif %}
       {% endif %}
       {% if settings.body_alternative_font_weight_200_italic %}
@@ -974,8 +930,7 @@
           endif
         %}
         {% if has_extension %}
-          @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight: 200;
-            font-style:italic;}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:200;font-style:italic;}
         {% endif %}
       {% endif %}
       {% # Generate weights 300-900 using loop pattern %}
@@ -1047,11 +1002,11 @@
             endif
           %}
           {% if has_extension %}
-            @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:{{ weight }};font-style:normal;}
-          {% endif %}
-        {% endif %}
-        {% if italic_selected %}
-          {% liquid
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:{{ weight }};font-style:normal;}
+{%- endif -%}
+{%- endif -%}
+{%- if italic_selected -%}
+{% liquid
             assign weight_suffix = '-' | append: weight | append: '-Italic'
             assign src_list = ''
             assign has_extension = false
@@ -1092,11 +1047,11 @@
               assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
             endif
           %}
-          {% if has_extension %}
-            @font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:{{ weight }};font-style:italic;}
-          {% endif %}
+{%- if has_extension -%}
+@font-face{font-family:'{{ settings.body_alternative_font_name }}';src:{{ src_list }};font-display:swap;font-weight:{{ weight }};font-style:italic;}
+{%- endif -%}
         {% endif %}
       {% endfor %}
     {% endif %}
   {% endif %}
-{% endstyle %}
+{%- endstyle -%}
