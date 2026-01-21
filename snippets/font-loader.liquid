@@ -25,78 +25,120 @@
   {% # ============================================ %}
   {% # Custom Font Loading - Header Alternative Font %}
   {% # ============================================ %}
-  {% if settings.header_alternative_font_name != blank and settings.header_alternative_font_extensions != blank %}
+  {% if settings.header_alternative_font_name != blank %}
     {% liquid
       assign header_font_name = settings.header_alternative_font_name | strip
-      assign header_extensions = settings.header_alternative_font_extensions
       assign src_list = ''
+      assign has_extension = false
       
-      for extension in header_extensions
-        assign font_file = header_font_name | append: '.' | append: extension
+      if settings.header_alternative_font_woff2
+        assign has_extension = true
+        assign font_file = header_font_name | append: '.woff2'
         assign font_url = font_file | asset_url
-        
-        case extension
-          when 'woff2'
-            assign format = 'woff2'
-          when 'woff'
-            assign format = 'woff'
-          when 'ttf'
-            assign format = 'truetype'
-          when 'eot'
-            assign format = 'embedded-opentype'
-        endcase
-        
         if src_list != blank
           assign src_list = src_list | append: ', '
         endif
-        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('" | append: format | append: "')"
-      endfor
+        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff2')"
+      endif
+      
+      if settings.header_alternative_font_woff
+        assign has_extension = true
+        assign font_file = header_font_name | append: '.woff'
+        assign font_url = font_file | asset_url
+        if src_list != blank
+          assign src_list = src_list | append: ', '
+        endif
+        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff')"
+      endif
+      
+      if settings.header_alternative_font_ttf
+        assign has_extension = true
+        assign font_file = header_font_name | append: '.ttf'
+        assign font_url = font_file | asset_url
+        if src_list != blank
+          assign src_list = src_list | append: ', '
+        endif
+        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('truetype')"
+      endif
+      
+      if settings.header_alternative_font_eot
+        assign has_extension = true
+        assign font_file = header_font_name | append: '.eot'
+        assign font_url = font_file | asset_url
+        if src_list != blank
+          assign src_list = src_list | append: ', '
+        endif
+        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
+      endif
     %}
-    @font-face {
-      font-family: '{{ settings.header_alternative_font_name }}';
-      src: {{ src_list }};
-      font-display: swap;
-      font-weight: normal;
-      font-style: normal;
-    }
+    {% if has_extension %}
+      @font-face {
+        font-family: '{{ settings.header_alternative_font_name }}';
+        src: {{ src_list }};
+        font-display: swap;
+        font-weight: normal;
+        font-style: normal;
+      }
+    {% endif %}
   {% endif %}
 
   {% # ============================================ %}
   {% # Custom Font Loading - Body Alternative Font %}
   {% # ============================================ %}
-  {% if settings.body_alternative_font_name != blank and settings.body_alternative_font_extensions != blank %}
+  {% if settings.body_alternative_font_name != blank %}
     {% liquid
       assign body_font_name = settings.body_alternative_font_name | strip
-      assign body_extensions = settings.body_alternative_font_extensions
       assign src_list = ''
+      assign has_extension = false
       
-      for extension in body_extensions
-        assign font_file = body_font_name | append: '.' | append: extension
+      if settings.body_alternative_font_woff2
+        assign has_extension = true
+        assign font_file = body_font_name | append: '.woff2'
         assign font_url = font_file | asset_url
-        
-        case extension
-          when 'woff2'
-            assign format = 'woff2'
-          when 'woff'
-            assign format = 'woff'
-          when 'ttf'
-            assign format = 'truetype'
-          when 'eot'
-            assign format = 'embedded-opentype'
-        endcase
-        
         if src_list != blank
           assign src_list = src_list | append: ', '
         endif
-        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('" | append: format | append: "')"
-      endfor
+        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff2')"
+      endif
+      
+      if settings.body_alternative_font_woff
+        assign has_extension = true
+        assign font_file = body_font_name | append: '.woff'
+        assign font_url = font_file | asset_url
+        if src_list != blank
+          assign src_list = src_list | append: ', '
+        endif
+        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff')"
+      endif
+      
+      if settings.body_alternative_font_ttf
+        assign has_extension = true
+        assign font_file = body_font_name | append: '.ttf'
+        assign font_url = font_file | asset_url
+        if src_list != blank
+          assign src_list = src_list | append: ', '
+        endif
+        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('truetype')"
+      endif
+      
+      if settings.body_alternative_font_eot
+        assign has_extension = true
+        assign font_file = body_font_name | append: '.eot'
+        assign font_url = font_file | asset_url
+        if src_list != blank
+          assign src_list = src_list | append: ', '
+        endif
+        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
+      endif
     %}
-    @font-face {
-      font-family: '{{ settings.body_alternative_font_name }}';
-      src: {{ src_list }};
-      font-display: swap;
-      font-weight: normal;
-      font-style: normal;
-    }
+    {% if has_extension %}
+      @font-face {
+        font-family: '{{ settings.body_alternative_font_name }}';
+        src: {{ src_list }};
+        font-display: swap;
+        font-weight: normal;
+        font-style: normal;
+      }
+    {% endif %}
   {% endif %}
 {% endstyle %}

@@ -41,30 +41,36 @@
 				"info": "t:labels.font_name_info"
 			},
 			{
-				"type": "select",
-				"id": "header_alternative_font_extensions",
-				"label": "t:labels.font_extensions",
-				"info": "t:labels.font_extensions_info",
-				"options": [
-					{
-						"value": "woff2",
-						"label": "WOFF2"
-					},
-					{
-						"value": "woff",
-						"label": "WOFF"
-					},
-					{
-						"value": "ttf",
-						"label": "TTF"
-					},
-					{
-						"value": "eot",
-						"label": "EOT"
-					}
-				],
-				"default": ["woff2"],
-				"multiple": true
+				"type": "header",
+				"content": "t:labels.font_extensions"
+			},
+			{
+				"type": "paragraph",
+				"content": "t:labels.font_extensions_info"
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_woff2",
+				"label": "WOFF2",
+				"default": true
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_woff",
+				"label": "WOFF",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_ttf",
+				"label": "TTF",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_eot",
+				"label": "EOT",
+				"default": false
 			},
 			{
 				"type": "text",
@@ -73,30 +79,36 @@
 				"info": "t:labels.font_name_info"
 			},
 			{
-				"type": "select",
-				"id": "body_alternative_font_extensions",
-				"label": "t:labels.font_extensions",
-				"info": "t:labels.font_extensions_info",
-				"options": [
-					{
-						"value": "woff2",
-						"label": "WOFF2"
-					},
-					{
-						"value": "woff",
-						"label": "WOFF"
-					},
-					{
-						"value": "ttf",
-						"label": "TTF"
-					},
-					{
-						"value": "eot",
-						"label": "EOT"
-					}
-				],
-				"default": ["woff2"],
-				"multiple": true
+				"type": "header",
+				"content": "t:labels.font_extensions"
+			},
+			{
+				"type": "paragraph",
+				"content": "t:labels.font_extensions_info"
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_woff2",
+				"label": "WOFF2",
+				"default": true
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_woff",
+				"label": "WOFF",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_ttf",
+				"label": "TTF",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_eot",
+				"label": "EOT",
+				"default": false
 			},
 			{
 				"type": "header",
