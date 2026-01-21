@@ -36,11 +36,6 @@
     --color-hover-links: {{ color_scheme.settings.hover_links }};
 
     {% # ============================================ %}
-    {% # Style Variables - Border Radius & More %}
-    {% # ============================================ %}
-    --style-border-radius-inputs: {{ settings.input_corner_radius }}px;
-
-    {% # ============================================ %}
     {% # Typography Variables - H1 Heading %}
     {% # ============================================ %}
     --type-h1--family: {% if settings.type_h1_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};

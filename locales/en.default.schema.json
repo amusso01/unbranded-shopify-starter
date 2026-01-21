@@ -43,6 +43,7 @@
     "section": "Section",
     "settings": "Settings",
     "sidebar": "Sidebar",
+    "socials": "Socials",
     "text": "Text",
     "theme": "Theme",
     "typography": "Typography"
@@ -98,7 +99,12 @@
     "show_payment_icons": "Show payment icons",
     "size": "Size",
     "text_style": "Text style",
-    "text": "Text"
+    "text": "Text",
+    "facebook_url": "Facebook URL",
+    "instagram_url": "Instagram URL",
+    "x_url": "X (Twitter) URL",
+    "tiktok_url": "TikTok URL",
+    "youtube_url": "YouTube URL"
   },
   "options": {
     "alignment": {
