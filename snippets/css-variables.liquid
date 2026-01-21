@@ -111,6 +111,30 @@
     --type-paragraph--size: {{ settings.type_paragraph_size }}px;
     --type-paragraph--line-height: {{ settings.type_paragraph_line_height }}px;
     --type-paragraph--letter-spacing: {{ settings.type_paragraph_letter_spacing | times: 10 }}px;
+
+    {% # ============================================ %}
+    {% # Button Variables %}
+    {% # ============================================ %}
+    {% # Typography and spacing settings for buttons. %}
+    {% # Used by .button-primary and .button-secondary classes. %}
+    {% # ============================================ %}
+    --button--padding-x: {{ settings.button_padding_x }}px;
+    --button--padding-y: {{ settings.button_padding_y }}px;
+    --button--font-size: {{ settings.button_font_size }}px;
+    --button--font-family: {% if settings.button_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
+    --button--letter-spacing: {{ settings.button_letter_spacing }}px;
+    --button--border-radius: {{ settings.button_border_radius }}px;
+    --button--font-weight: {{ settings.button_font_weight }};
+
+    {% # ============================================ %}
+    {% # Pills Variables %}
+    {% # ============================================ %}
+    {% # Spacing and border radius settings for pills. %}
+    {% # Used by .button-pills class. %}
+    {% # ============================================ %}
+    --pill--padding-x: {{ settings.pill_padding_x }}px;
+    --pill--padding-y: {{ settings.pill_padding_y }}px;
+    --pill--border-radius: {{ settings.pill_border_radius }}px;
   }
 
   {% # ============================================ %}
@@ -185,6 +209,12 @@
       --color-primary-button-text-rgb: {{ scheme.settings.primary_button_text.rgb }};
       --color-primary-button-border: {{ scheme.settings.primary_button_border }};
       --color-primary-button-border-rgb: {{ scheme.settings.primary_button_border.rgb }};
+      --color-primary-button-background-hover: {{ scheme.settings.primary_button_background_hover }};
+      --color-primary-button-background-hover-rgb: {{ scheme.settings.primary_button_background_hover.rgb }};
+      --color-primary-button-text-hover: {{ scheme.settings.primary_button_text_hover }};
+      --color-primary-button-text-hover-rgb: {{ scheme.settings.primary_button_text_hover.rgb }};
+      --color-primary-button-border-hover: {{ scheme.settings.primary_button_border_hover }};
+      --color-primary-button-border-hover-rgb: {{ scheme.settings.primary_button_border_hover.rgb }};
 
       {% # ============================================ %}
       {% # Secondary Button Colors %}
@@ -195,6 +225,12 @@
       --color-secondary-button-text-rgb: {{ scheme.settings.secondary_button_text.rgb }};
       --color-secondary-button-border: {{ scheme.settings.secondary_button_border }};
       --color-secondary-button-border-rgb: {{ scheme.settings.secondary_button_border.rgb }};
+      --color-secondary-button-background-hover: {{ scheme.settings.secondary_button_background_hover }};
+      --color-secondary-button-background-hover-rgb: {{ scheme.settings.secondary_button_background_hover.rgb }};
+      --color-secondary-button-text-hover: {{ scheme.settings.secondary_button_text_hover }};
+      --color-secondary-button-text-hover-rgb: {{ scheme.settings.secondary_button_text_hover.rgb }};
+      --color-secondary-button-border-hover: {{ scheme.settings.secondary_button_border_hover }};
+      --color-secondary-button-border-hover-rgb: {{ scheme.settings.secondary_button_border_hover.rgb }};
     }
   {% endfor %}
 

@@ -821,6 +821,27 @@
 						"alpha": true
 					},
 					{
+						"type": "color",
+						"id": "primary_button_background_hover",
+						"label": "t:labels.background_hover",
+						"default": "#000F9F",
+						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "primary_button_text_hover",
+						"label": "t:labels.text_hover",
+						"default": "#FFFFFF",
+						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "primary_button_border_hover",
+						"label": "t:labels.border_hover",
+						"default": "#000F9F",
+						"alpha": true
+					},
+					{
 						"type": "header",
 						"content": "t:labels.secondary_button"
 					},
@@ -844,6 +865,27 @@
 						"label": "t:labels.borders",
 						"default": "#000000",
 						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "secondary_button_background_hover",
+						"label": "t:labels.background_hover",
+						"default": "#FFFFFF",
+						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "secondary_button_text_hover",
+						"label": "t:labels.text_hover",
+						"default": "#000000",
+						"alpha": true
+					},
+					{
+						"type": "color",
+						"id": "secondary_button_border_hover",
+						"label": "t:labels.border_hover",
+						"default": "#000000",
+						"alpha": true
 					}
 				],
 				"role": {
@@ -858,6 +900,129 @@
 					"on_secondary_button": "secondary_button_text",
 					"secondary_button_border": "secondary_button_border"
 				}
+			}
+		]
+	},
+	{
+		"name": "t:general.buttons",
+		"settings": [
+			{
+				"type": "header",
+				"content": "t:labels.primary_and_secondary_button"
+			},
+			{
+				"type": "range",
+				"id": "button_padding_x",
+				"min": 0,
+				"max": 100,
+				"step": 1,
+				"unit": "px",
+				"label": "t:labels.padding_x",
+				"default": 24
+			},
+			{
+				"type": "range",
+				"id": "button_padding_y",
+				"min": 0,
+				"max": 100,
+				"step": 1,
+				"unit": "px",
+				"label": "t:labels.padding_y",
+				"default": 12
+			},
+			{
+				"type": "range",
+				"id": "button_font_size",
+				"min": 8,
+				"max": 50,
+				"step": 1,
+				"unit": "px",
+				"label": "t:labels.font_size",
+				"default": 16
+			},
+			{
+				"type": "select",
+				"id": "button_font",
+				"label": "t:labels.font",
+				"options": [
+					{
+						"value": "header",
+						"label": "t:general.header_font"
+					},
+					{
+						"value": "body",
+						"label": "t:general.body_font"
+					}
+				],
+				"default": "body"
+			},
+			{
+				"type": "range",
+				"id": "button_letter_spacing",
+				"min": -5,
+				"max": 10,
+				"step": 0.1,
+				"unit": "px",
+				"label": "t:labels.letter_spacing",
+				"default": 0
+			},
+			{
+				"type": "range",
+				"id": "button_border_radius",
+				"min": 0,
+				"max": 50,
+				"step": 1,
+				"unit": "px",
+				"label": "t:labels.border_radius",
+				"default": 4
+			},
+			{
+				"type": "number",
+				"id": "button_font_weight",
+				"label": "t:labels.font_weight",
+				"info": "t:labels.font_weight_info",
+				"min": 100,
+				"max": 900,
+				"step": 100,
+				"default": 400
+			},
+			{
+				"type": "header",
+				"content": "t:labels.pills"
+			},
+			{
+				"type": "paragraph",
+				"content": "t:labels.pills_info"
+			},
+			{
+				"type": "range",
+				"id": "pill_padding_x",
+				"min": 1,
+				"max": 50,
+				"step": 1,
+				"unit": "px",
+				"label": "t:labels.padding_x",
+				"default": 12
+			},
+			{
+				"type": "range",
+				"id": "pill_padding_y",
+				"min": 1,
+				"max": 50,
+				"step": 1,
+				"unit": "px",
+				"label": "t:labels.padding_y",
+				"default": 6
+			},
+			{
+				"type": "range",
+				"id": "pill_border_radius",
+				"min": 0,
+				"max": 50,
+				"step": 1,
+				"unit": "px",
+				"label": "t:labels.border_radius",
+				"default": 20
 			}
 		]
 	},
