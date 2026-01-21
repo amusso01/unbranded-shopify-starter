@@ -28,57 +28,246 @@
   {% if settings.header_alternative_font_name != blank %}
     {% liquid
       assign header_font_name = settings.header_alternative_font_name | strip
-      assign src_list = ''
-      assign has_extension = false
+      assign is_variable = settings.header_alternative_font_variable
+      assign naming_pattern = settings.header_alternative_font_naming_pattern
+      assign custom_pattern = settings.header_alternative_font_custom_pattern | strip
       
-      if settings.header_alternative_font_woff2
-        assign has_extension = true
-        assign font_file = header_font_name | append: '.woff2'
-        assign font_url = font_file | asset_url
-        if src_list != blank
-          assign src_list = src_list | append: ', '
-        endif
-        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff2')"
-      endif
-      
-      if settings.header_alternative_font_woff
-        assign has_extension = true
-        assign font_file = header_font_name | append: '.woff'
-        assign font_url = font_file | asset_url
-        if src_list != blank
-          assign src_list = src_list | append: ', '
-        endif
-        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff')"
-      endif
-      
-      if settings.header_alternative_font_ttf
-        assign has_extension = true
-        assign font_file = header_font_name | append: '.ttf'
-        assign font_url = font_file | asset_url
-        if src_list != blank
-          assign src_list = src_list | append: ', '
-        endif
-        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('truetype')"
-      endif
-      
-      if settings.header_alternative_font_eot
-        assign has_extension = true
-        assign font_file = header_font_name | append: '.eot'
-        assign font_url = font_file | asset_url
-        if src_list != blank
-          assign src_list = src_list | append: ', '
-        endif
-        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
-      endif
+      # Weight to name mapping for name-based pattern
+      assign weight_names = 'Thin,ExtraLight,Light,Regular,Medium,SemiBold,Bold,ExtraBold,Black' | split: ','
+      assign weights = '100,200,300,400,500,600,700,800,900' | split: ','
     %}
-    {% if has_extension %}
-      @font-face {
-        font-family: '{{ settings.header_alternative_font_name }}';
-        src: {{ src_list }};
-        font-display: swap;
-        font-weight: normal;
-        font-style: normal;
-      }
+    
+    {% # Build src list for variable fonts (same file for all weights) %}
+    {% if is_variable %}
+      {% liquid
+        assign src_list = ''
+        assign has_extension = false
+        
+        if settings.header_alternative_font_woff2
+          assign has_extension = true
+          assign font_file = header_font_name | append: '.woff2'
+          assign font_url = font_file | asset_url
+          if src_list != blank
+            assign src_list = src_list | append: ', '
+          endif
+          assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff2')"
+        endif
+        
+        if settings.header_alternative_font_woff
+          assign has_extension = true
+          assign font_file = header_font_name | append: '.woff'
+          assign font_url = font_file | asset_url
+          if src_list != blank
+            assign src_list = src_list | append: ', '
+          endif
+          assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff')"
+        endif
+        
+        if settings.header_alternative_font_ttf
+          assign has_extension = true
+          assign font_file = header_font_name | append: '.ttf'
+          assign font_url = font_file | asset_url
+          if src_list != blank
+            assign src_list = src_list | append: ', '
+          endif
+          assign src_list = src_list | append: "url('" | append: font_url | append: "') format('truetype')"
+        endif
+        
+        if settings.header_alternative_font_eot
+          assign has_extension = true
+          assign font_file = header_font_name | append: '.eot'
+          assign font_url = font_file | asset_url
+          if src_list != blank
+            assign src_list = src_list | append: ', '
+          endif
+          assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
+        endif
+      %}
+      {% if has_extension %}
+        {% if settings.header_alternative_font_weight_100 %}
+          @font-face {
+            font-family: '{{ settings.header_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 100;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.header_alternative_font_weight_200 %}
+          @font-face {
+            font-family: '{{ settings.header_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 200;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.header_alternative_font_weight_300 %}
+          @font-face {
+            font-family: '{{ settings.header_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 300;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.header_alternative_font_weight_400 %}
+          @font-face {
+            font-family: '{{ settings.header_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 400;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.header_alternative_font_weight_500 %}
+          @font-face {
+            font-family: '{{ settings.header_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 500;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.header_alternative_font_weight_600 %}
+          @font-face {
+            font-family: '{{ settings.header_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 600;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.header_alternative_font_weight_700 %}
+          @font-face {
+            font-family: '{{ settings.header_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 700;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.header_alternative_font_weight_800 %}
+          @font-face {
+            font-family: '{{ settings.header_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 800;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.header_alternative_font_weight_900 %}
+          @font-face {
+            font-family: '{{ settings.header_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 900;
+            font-style: normal;
+          }
+        {% endif %}
+      {% endif %}
+    {% else %}
+      {% # Non-variable font: different file per weight %}
+      {% for weight in weights %}
+        {% assign weight_index = forloop.index0 %}
+        {% assign weight_name = weight_names[weight_index] %}
+        {% assign weight_value = weight %}
+        
+        {% # Check if this weight is selected %}
+        {% case weight_value %}
+          {% when '100' %}
+            {% assign weight_selected = settings.header_alternative_font_weight_100 %}
+          {% when '200' %}
+            {% assign weight_selected = settings.header_alternative_font_weight_200 %}
+          {% when '300' %}
+            {% assign weight_selected = settings.header_alternative_font_weight_300 %}
+          {% when '400' %}
+            {% assign weight_selected = settings.header_alternative_font_weight_400 %}
+          {% when '500' %}
+            {% assign weight_selected = settings.header_alternative_font_weight_500 %}
+          {% when '600' %}
+            {% assign weight_selected = settings.header_alternative_font_weight_600 %}
+          {% when '700' %}
+            {% assign weight_selected = settings.header_alternative_font_weight_700 %}
+          {% when '800' %}
+            {% assign weight_selected = settings.header_alternative_font_weight_800 %}
+          {% when '900' %}
+            {% assign weight_selected = settings.header_alternative_font_weight_900 %}
+        {% endcase %}
+        
+        {% if weight_selected %}
+          {% liquid
+            # Build file name based on naming pattern
+            case naming_pattern
+              when 'weight'
+                assign weight_suffix = '-' | append: weight_value
+              when 'name'
+                assign weight_suffix = '-' | append: weight_name
+              when 'custom'
+                if custom_pattern != blank
+                  assign weight_suffix = custom_pattern | replace: '{weight}', weight_value
+                else
+                  assign weight_suffix = '-' | append: weight_value
+                endif
+              else
+                assign weight_suffix = '-' | append: weight_value
+            endcase
+            
+            # Build src list for this weight
+            assign src_list = ''
+            assign has_extension = false
+            
+            if settings.header_alternative_font_woff2
+              assign has_extension = true
+              assign font_file = header_font_name | append: weight_suffix | append: '.woff2'
+              assign font_url = font_file | asset_url
+              if src_list != blank
+                assign src_list = src_list | append: ', '
+              endif
+              assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff2')"
+            endif
+            
+            if settings.header_alternative_font_woff
+              assign has_extension = true
+              assign font_file = header_font_name | append: weight_suffix | append: '.woff'
+              assign font_url = font_file | asset_url
+              if src_list != blank
+                assign src_list = src_list | append: ', '
+              endif
+              assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff')"
+            endif
+            
+            if settings.header_alternative_font_ttf
+              assign has_extension = true
+              assign font_file = header_font_name | append: weight_suffix | append: '.ttf'
+              assign font_url = font_file | asset_url
+              if src_list != blank
+                assign src_list = src_list | append: ', '
+              endif
+              assign src_list = src_list | append: "url('" | append: font_url | append: "') format('truetype')"
+            endif
+            
+            if settings.header_alternative_font_eot
+              assign has_extension = true
+              assign font_file = header_font_name | append: weight_suffix | append: '.eot'
+              assign font_url = font_file | asset_url
+              if src_list != blank
+                assign src_list = src_list | append: ', '
+              endif
+              assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
+            endif
+          %}
+          {% if has_extension %}
+            @font-face {
+              font-family: '{{ settings.header_alternative_font_name }}';
+              src: {{ src_list }};
+              font-display: swap;
+              font-weight: {{ weight_value }};
+              font-style: normal;
+            }
+          {% endif %}
+        {% endif %}
+      {% endfor %}
     {% endif %}
   {% endif %}
 
@@ -88,57 +277,246 @@
   {% if settings.body_alternative_font_name != blank %}
     {% liquid
       assign body_font_name = settings.body_alternative_font_name | strip
-      assign src_list = ''
-      assign has_extension = false
+      assign is_variable = settings.body_alternative_font_variable
+      assign naming_pattern = settings.body_alternative_font_naming_pattern
+      assign custom_pattern = settings.body_alternative_font_custom_pattern | strip
       
-      if settings.body_alternative_font_woff2
-        assign has_extension = true
-        assign font_file = body_font_name | append: '.woff2'
-        assign font_url = font_file | asset_url
-        if src_list != blank
-          assign src_list = src_list | append: ', '
-        endif
-        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff2')"
-      endif
-      
-      if settings.body_alternative_font_woff
-        assign has_extension = true
-        assign font_file = body_font_name | append: '.woff'
-        assign font_url = font_file | asset_url
-        if src_list != blank
-          assign src_list = src_list | append: ', '
-        endif
-        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff')"
-      endif
-      
-      if settings.body_alternative_font_ttf
-        assign has_extension = true
-        assign font_file = body_font_name | append: '.ttf'
-        assign font_url = font_file | asset_url
-        if src_list != blank
-          assign src_list = src_list | append: ', '
-        endif
-        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('truetype')"
-      endif
-      
-      if settings.body_alternative_font_eot
-        assign has_extension = true
-        assign font_file = body_font_name | append: '.eot'
-        assign font_url = font_file | asset_url
-        if src_list != blank
-          assign src_list = src_list | append: ', '
-        endif
-        assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
-      endif
+      # Weight to name mapping for name-based pattern
+      assign weight_names = 'Thin,ExtraLight,Light,Regular,Medium,SemiBold,Bold,ExtraBold,Black' | split: ','
+      assign weights = '100,200,300,400,500,600,700,800,900' | split: ','
     %}
-    {% if has_extension %}
-      @font-face {
-        font-family: '{{ settings.body_alternative_font_name }}';
-        src: {{ src_list }};
-        font-display: swap;
-        font-weight: normal;
-        font-style: normal;
-      }
+    
+    {% # Build src list for variable fonts (same file for all weights) %}
+    {% if is_variable %}
+      {% liquid
+        assign src_list = ''
+        assign has_extension = false
+        
+        if settings.body_alternative_font_woff2
+          assign has_extension = true
+          assign font_file = body_font_name | append: '.woff2'
+          assign font_url = font_file | asset_url
+          if src_list != blank
+            assign src_list = src_list | append: ', '
+          endif
+          assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff2')"
+        endif
+        
+        if settings.body_alternative_font_woff
+          assign has_extension = true
+          assign font_file = body_font_name | append: '.woff'
+          assign font_url = font_file | asset_url
+          if src_list != blank
+            assign src_list = src_list | append: ', '
+          endif
+          assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff')"
+        endif
+        
+        if settings.body_alternative_font_ttf
+          assign has_extension = true
+          assign font_file = body_font_name | append: '.ttf'
+          assign font_url = font_file | asset_url
+          if src_list != blank
+            assign src_list = src_list | append: ', '
+          endif
+          assign src_list = src_list | append: "url('" | append: font_url | append: "') format('truetype')"
+        endif
+        
+        if settings.body_alternative_font_eot
+          assign has_extension = true
+          assign font_file = body_font_name | append: '.eot'
+          assign font_url = font_file | asset_url
+          if src_list != blank
+            assign src_list = src_list | append: ', '
+          endif
+          assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
+        endif
+      %}
+      {% if has_extension %}
+        {% if settings.body_alternative_font_weight_100 %}
+          @font-face {
+            font-family: '{{ settings.body_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 100;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.body_alternative_font_weight_200 %}
+          @font-face {
+            font-family: '{{ settings.body_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 200;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.body_alternative_font_weight_300 %}
+          @font-face {
+            font-family: '{{ settings.body_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 300;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.body_alternative_font_weight_400 %}
+          @font-face {
+            font-family: '{{ settings.body_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 400;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.body_alternative_font_weight_500 %}
+          @font-face {
+            font-family: '{{ settings.body_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 500;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.body_alternative_font_weight_600 %}
+          @font-face {
+            font-family: '{{ settings.body_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 600;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.body_alternative_font_weight_700 %}
+          @font-face {
+            font-family: '{{ settings.body_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 700;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.body_alternative_font_weight_800 %}
+          @font-face {
+            font-family: '{{ settings.body_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 800;
+            font-style: normal;
+          }
+        {% endif %}
+        {% if settings.body_alternative_font_weight_900 %}
+          @font-face {
+            font-family: '{{ settings.body_alternative_font_name }}';
+            src: {{ src_list }};
+            font-display: swap;
+            font-weight: 900;
+            font-style: normal;
+          }
+        {% endif %}
+      {% endif %}
+    {% else %}
+      {% # Non-variable font: different file per weight %}
+      {% for weight in weights %}
+        {% assign weight_index = forloop.index0 %}
+        {% assign weight_name = weight_names[weight_index] %}
+        {% assign weight_value = weight %}
+        
+        {% # Check if this weight is selected %}
+        {% case weight_value %}
+          {% when '100' %}
+            {% assign weight_selected = settings.body_alternative_font_weight_100 %}
+          {% when '200' %}
+            {% assign weight_selected = settings.body_alternative_font_weight_200 %}
+          {% when '300' %}
+            {% assign weight_selected = settings.body_alternative_font_weight_300 %}
+          {% when '400' %}
+            {% assign weight_selected = settings.body_alternative_font_weight_400 %}
+          {% when '500' %}
+            {% assign weight_selected = settings.body_alternative_font_weight_500 %}
+          {% when '600' %}
+            {% assign weight_selected = settings.body_alternative_font_weight_600 %}
+          {% when '700' %}
+            {% assign weight_selected = settings.body_alternative_font_weight_700 %}
+          {% when '800' %}
+            {% assign weight_selected = settings.body_alternative_font_weight_800 %}
+          {% when '900' %}
+            {% assign weight_selected = settings.body_alternative_font_weight_900 %}
+        {% endcase %}
+        
+        {% if weight_selected %}
+          {% liquid
+            # Build file name based on naming pattern
+            case naming_pattern
+              when 'weight'
+                assign weight_suffix = '-' | append: weight_value
+              when 'name'
+                assign weight_suffix = '-' | append: weight_name
+              when 'custom'
+                if custom_pattern != blank
+                  assign weight_suffix = custom_pattern | replace: '{weight}', weight_value
+                else
+                  assign weight_suffix = '-' | append: weight_value
+                endif
+              else
+                assign weight_suffix = '-' | append: weight_value
+            endcase
+            
+            # Build src list for this weight
+            assign src_list = ''
+            assign has_extension = false
+            
+            if settings.body_alternative_font_woff2
+              assign has_extension = true
+              assign font_file = body_font_name | append: weight_suffix | append: '.woff2'
+              assign font_url = font_file | asset_url
+              if src_list != blank
+                assign src_list = src_list | append: ', '
+              endif
+              assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff2')"
+            endif
+            
+            if settings.body_alternative_font_woff
+              assign has_extension = true
+              assign font_file = body_font_name | append: weight_suffix | append: '.woff'
+              assign font_url = font_file | asset_url
+              if src_list != blank
+                assign src_list = src_list | append: ', '
+              endif
+              assign src_list = src_list | append: "url('" | append: font_url | append: "') format('woff')"
+            endif
+            
+            if settings.body_alternative_font_ttf
+              assign has_extension = true
+              assign font_file = body_font_name | append: weight_suffix | append: '.ttf'
+              assign font_url = font_file | asset_url
+              if src_list != blank
+                assign src_list = src_list | append: ', '
+              endif
+              assign src_list = src_list | append: "url('" | append: font_url | append: "') format('truetype')"
+            endif
+            
+            if settings.body_alternative_font_eot
+              assign has_extension = true
+              assign font_file = body_font_name | append: weight_suffix | append: '.eot'
+              assign font_url = font_file | asset_url
+              if src_list != blank
+                assign src_list = src_list | append: ', '
+              endif
+              assign src_list = src_list | append: "url('" | append: font_url | append: "') format('embedded-opentype')"
+            endif
+          %}
+          {% if has_extension %}
+            @font-face {
+              font-family: '{{ settings.body_alternative_font_name }}';
+              src: {{ src_list }};
+              font-display: swap;
+              font-weight: {{ weight_value }};
+              font-style: normal;
+            }
+          {% endif %}
+        {% endif %}
+      {% endfor %}
     {% endif %}
   {% endif %}
 {% endstyle %}

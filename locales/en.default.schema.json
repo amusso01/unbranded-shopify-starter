@@ -55,8 +55,16 @@
     "font": "Font",
     "font_extensions": "Font file extensions",
     "font_extensions_info": "Select the file extensions you've uploaded to the assets folder. Files must be named exactly as the font name with the extension (e.g., Helvetica.woff, Helvetica.eot).",
+    "font_weights": "Font weights",
+    "font_weights_info": "Select which font weights to include. For variable fonts, you can select multiple weights to generate separate @font-face declarations.",
     "font_file_info": "Enter the path to your font file in the assets folder (e.g., fonts/custom-font.woff2)",
     "font_name_info": "Enter the font name exactly as it appears in your file names. Spelling and capitalization matter (e.g., 'Helvetica' not 'helvetica'). Files must be in the assets folder.",
+    "variable_font": "Variable font",
+    "variable_font_info": "Check if this is a variable font (single file for all weights). Uncheck for non-variable fonts (separate file per weight).",
+    "font_naming_pattern": "Font naming pattern",
+    "font_naming_pattern_info": "For non-variable fonts, select how your font files are named. Use 'weight' for FontName-100.woff2, 'name' for FontName-Thin.woff2, or 'custom' for your own pattern.",
+    "custom_naming_pattern": "Custom naming pattern",
+    "custom_naming_pattern_info": "Enter your custom pattern using {weight} as placeholder (e.g., FontName-{weight} or FontName{weight}).",
     "header_alternative_font": "Header alternative font",
     "header_alternative_font_file": "Header alternative font file",
     "header_alternative_font_name": "Header alternative font name",
@@ -115,5 +123,10 @@
       "subtitle": "Subtitle",
       "normal": "Normal text"
     },
+    "naming_pattern": {
+      "weight": "Weight-based (FontName-100.woff2)",
+      "name": "Name-based (FontName-Thin.woff2)",
+      "custom": "Custom pattern"
+    }
   }
 }

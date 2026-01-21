@@ -45,6 +45,41 @@
 				"info": "t:labels.font_name_info"
 			},
 			{
+				"type": "checkbox",
+				"id": "header_alternative_font_variable",
+				"label": "t:labels.variable_font",
+				"info": "t:labels.variable_font_info",
+				"default": true
+			},
+			{
+				"type": "select",
+				"id": "header_alternative_font_naming_pattern",
+				"label": "t:labels.font_naming_pattern",
+				"info": "t:labels.font_naming_pattern_info",
+				"options": [
+					{
+						"value": "weight",
+						"label": "t:options.naming_pattern.weight"
+					},
+					{
+						"value": "name",
+						"label": "t:options.naming_pattern.name"
+					},
+					{
+						"value": "custom",
+						"label": "t:options.naming_pattern.custom"
+					}
+				],
+				"default": "weight"
+			},
+			{
+				"type": "text",
+				"id": "header_alternative_font_custom_pattern",
+				"label": "t:labels.custom_naming_pattern",
+				"info": "t:labels.custom_naming_pattern_info",
+				"placeholder": "FontName-{weight}"
+			},
+			{
 				"type": "header",
 				"content": "t:labels.font_extensions"
 			},
@@ -78,6 +113,68 @@
 			},
 			{
 				"type": "header",
+				"content": "t:labels.font_weights"
+			},
+			{
+				"type": "paragraph",
+				"content": "t:labels.font_weights_info"
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_weight_100",
+				"label": "100 (Thin)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_weight_200",
+				"label": "200 (Extra Light)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_weight_300",
+				"label": "300 (Light)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_weight_400",
+				"label": "400 (Normal)",
+				"default": true
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_weight_500",
+				"label": "500 (Medium)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_weight_600",
+				"label": "600 (Semi Bold)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_weight_700",
+				"label": "700 (Bold)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_weight_800",
+				"label": "800 (Extra Bold)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "header_alternative_font_weight_900",
+				"label": "900 (Black)",
+				"default": false
+			},
+			{
+				"type": "header",
 				"content": "t:labels.body_alternative_font"
 			},
 			{
@@ -85,6 +182,41 @@
 				"id": "body_alternative_font_name",
 				"label": "t:labels.body_alternative_font_name",
 				"info": "t:labels.font_name_info"
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_variable",
+				"label": "t:labels.variable_font",
+				"info": "t:labels.variable_font_info",
+				"default": true
+			},
+			{
+				"type": "select",
+				"id": "body_alternative_font_naming_pattern",
+				"label": "t:labels.font_naming_pattern",
+				"info": "t:labels.font_naming_pattern_info",
+				"options": [
+					{
+						"value": "weight",
+						"label": "t:options.naming_pattern.weight"
+					},
+					{
+						"value": "name",
+						"label": "t:options.naming_pattern.name"
+					},
+					{
+						"value": "custom",
+						"label": "t:options.naming_pattern.custom"
+					}
+				],
+				"default": "weight"
+			},
+			{
+				"type": "text",
+				"id": "body_alternative_font_custom_pattern",
+				"label": "t:labels.custom_naming_pattern",
+				"info": "t:labels.custom_naming_pattern_info",
+				"placeholder": "FontName-{weight}"
 			},
 			{
 				"type": "header",
@@ -116,6 +248,68 @@
 				"type": "checkbox",
 				"id": "body_alternative_font_eot",
 				"label": "EOT",
+				"default": false
+			},
+			{
+				"type": "header",
+				"content": "t:labels.font_weights"
+			},
+			{
+				"type": "paragraph",
+				"content": "t:labels.font_weights_info"
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_weight_100",
+				"label": "100 (Thin)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_weight_200",
+				"label": "200 (Extra Light)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_weight_300",
+				"label": "300 (Light)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_weight_400",
+				"label": "400 (Normal)",
+				"default": true
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_weight_500",
+				"label": "500 (Medium)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_weight_600",
+				"label": "600 (Semi Bold)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_weight_700",
+				"label": "700 (Bold)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_weight_800",
+				"label": "800 (Extra Bold)",
+				"default": false
+			},
+			{
+				"type": "checkbox",
+				"id": "body_alternative_font_weight_900",
+				"label": "900 (Black)",
 				"default": false
 			},
 			{
