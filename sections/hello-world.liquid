@@ -3,10 +3,8 @@
 {% endcomment %}
 
 {% assign color_scheme_id = section.settings.color_scheme | default: 'scheme-1' %}
-{% assign scheme_number = color_scheme_id | replace: 'scheme-', '' %}
-{% assign scheme_class = color_scheme_id | replace: '-', '_' %}
 
-<div class="hello-world color-scheme-{{ scheme_number }} color-{{ scheme_class }}">
+<div class="hello-world color-{{ color_scheme_id }}">
   <div class="shopify-section">
     <div class="hello-world__content">
       <h1>Heading 1 - The Main Title</h1>

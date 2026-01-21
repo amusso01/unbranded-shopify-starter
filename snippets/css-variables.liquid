@@ -26,23 +26,6 @@
     --page-margin: {{ settings.min_page_margin }}px;
 
     {% # ============================================ %}
-    {% # Color Variables - Default Color Scheme %}
-    {% # ============================================ %}
-    {% assign color_scheme = settings.color_schemes.first %}
-    --color-background: {{ color_scheme.settings.background }};
-    --color-headings: {{ color_scheme.settings.headings }};
-    --color-text: {{ color_scheme.settings.text }};
-    --color-links: {{ color_scheme.settings.links }};
-    --color-hover-links: {{ color_scheme.settings.hover_links }};
-    --color-icons: {{ color_scheme.settings.icons }};
-    --color-primary-button-background: {{ color_scheme.settings.primary_button_background }};
-    --color-primary-button-text: {{ color_scheme.settings.primary_button_text }};
-    --color-primary-button-border: {{ color_scheme.settings.primary_button_border }};
-    --color-secondary-button-background: {{ color_scheme.settings.secondary_button_background }};
-    --color-secondary-button-text: {{ color_scheme.settings.secondary_button_text }};
-    --color-secondary-button-border: {{ color_scheme.settings.secondary_button_border }};
-
-    {% # ============================================ %}
     {% # Typography Variables - H1 Heading %}
     {% # ============================================ %}
     --type-h1--family: {% if settings.type_h1_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
@@ -102,51 +85,42 @@
   {% # ============================================ %}
   {% # Color Scheme Classes %}
   {% # ============================================ %}
-  {% # Generate classes for numbered schemes (scheme-1, scheme-2, etc.) %}
-  {% for i in (1..10) %}
-    {% assign scheme_id = 'scheme-' | append: i %}
-    {% assign scheme = settings.color_schemes[scheme_id] %}
-    {% if scheme and scheme.settings %}
-      .color-scheme-{{ i }},
-      .color-{{ scheme_id }} {
-        --color-background: {{ scheme.settings.background }};
-        --color-headings: {{ scheme.settings.headings }};
-        --color-text: {{ scheme.settings.text }};
-        --color-links: {{ scheme.settings.links }};
-        --color-hover-links: {{ scheme.settings.hover_links }};
-        --color-icons: {{ scheme.settings.icons }};
-        --color-primary-button-background: {{ scheme.settings.primary_button_background }};
-        --color-primary-button-text: {{ scheme.settings.primary_button_text }};
-        --color-primary-button-border: {{ scheme.settings.primary_button_border }};
-        --color-secondary-button-background: {{ scheme.settings.secondary_button_background }};
-        --color-secondary-button-text: {{ scheme.settings.secondary_button_text }};
-        --color-secondary-button-border: {{ scheme.settings.secondary_button_border }};
-      }
+  {% assign scheme_classes = '' %}
+  {% for scheme in settings.color_schemes %}
+    {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+    {% if forloop.index == 1 %}
+      :root,
     {% endif %}
+    .color-{{ scheme.id }} {
+      --color-background: {{ scheme.settings.background }};
+      --color-background-rgb: {{ scheme.settings.background.rgb }};
+      --color-headings: {{ scheme.settings.headings }};
+      --color-headings-rgb: {{ scheme.settings.headings.rgb }};
+      --color-text: {{ scheme.settings.text }};
+      --color-text-rgb: {{ scheme.settings.text.rgb }};
+      --color-links: {{ scheme.settings.links }};
+      --color-links-rgb: {{ scheme.settings.links.rgb }};
+      --color-hover-links: {{ scheme.settings.hover_links }};
+      --color-hover-links-rgb: {{ scheme.settings.hover_links.rgb }};
+      --color-icons: {{ scheme.settings.icons }};
+      --color-icons-rgb: {{ scheme.settings.icons.rgb }};
+      --color-primary-button-background: {{ scheme.settings.primary_button_background }};
+      --color-primary-button-background-rgb: {{ scheme.settings.primary_button_background.rgb }};
+      --color-primary-button-text: {{ scheme.settings.primary_button_text }};
+      --color-primary-button-text-rgb: {{ scheme.settings.primary_button_text.rgb }};
+      --color-primary-button-border: {{ scheme.settings.primary_button_border }};
+      --color-primary-button-border-rgb: {{ scheme.settings.primary_button_border.rgb }};
+      --color-secondary-button-background: {{ scheme.settings.secondary_button_background }};
+      --color-secondary-button-background-rgb: {{ scheme.settings.secondary_button_background.rgb }};
+      --color-secondary-button-text: {{ scheme.settings.secondary_button_text }};
+      --color-secondary-button-text-rgb: {{ scheme.settings.secondary_button_text.rgb }};
+      --color-secondary-button-border: {{ scheme.settings.secondary_button_border }};
+      --color-secondary-button-border-rgb: {{ scheme.settings.secondary_button_border.rgb }};
+    }
   {% endfor %}
-  
-  {% # Generate classes for UUID-based schemes %}
-  {% for scheme_pair in settings.color_schemes %}
-    {% assign scheme_id = scheme_pair[0] %}
-    {% assign scheme_data = scheme_pair[1] %}
-    {% if scheme_data.settings %}
-      {% assign scheme_class = scheme_id | replace: 'scheme-', 'color-scheme-' | replace: '-', '_' %}
-      {% unless scheme_id contains 'scheme-' and scheme_id | replace: 'scheme-', '' | plus: 0 > 0 and scheme_id | replace: 'scheme-', '' | plus: 0 < 11 %}
-        .color-{{ scheme_id | replace: '-', '_' }} {
-          --color-background: {{ scheme_data.settings.background }};
-          --color-headings: {{ scheme_data.settings.headings }};
-          --color-text: {{ scheme_data.settings.text }};
-          --color-links: {{ scheme_data.settings.links }};
-          --color-hover-links: {{ scheme_data.settings.hover_links }};
-          --color-icons: {{ scheme_data.settings.icons }};
-          --color-primary-button-background: {{ scheme_data.settings.primary_button_background }};
-          --color-primary-button-text: {{ scheme_data.settings.primary_button_text }};
-          --color-primary-button-border: {{ scheme_data.settings.primary_button_border }};
-          --color-secondary-button-background: {{ scheme_data.settings.secondary_button_background }};
-          --color-secondary-button-text: {{ scheme_data.settings.secondary_button_text }};
-          --color-secondary-button-border: {{ scheme_data.settings.secondary_button_border }};
-        }
-      {% endunless %}
-    {% endif %}
-  {% endfor %}
+
+  {{ scheme_classes | prepend: 'body' }} {
+    color: var(--color-text);
+    background-color: var(--color-background);
+  }
 {% endstyle %}
