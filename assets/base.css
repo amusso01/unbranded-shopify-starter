@@ -92,10 +92,6 @@ h6 {
 	overflow-wrap: break-word;
 }
 
-/* Hides empty paragraphs */
-p:empty {
-	display: none;
-}
 
 /* Removes top margin from first text element */
 :is(p, h1, h2, h3, h4, h5, h6):first-child,
@@ -268,61 +264,4 @@ p {
 /* Useful for hero sections, backgrounds, or elements that need edge-to-edge display. */
 .shopify-section > .full-width {
 	grid-column: 1 / -1;
-}
-
-/* ============================================ */
-/* Button Classes */
-/* ============================================ */
-/* Primary and secondary button classes using button typography variables */
-/* and color scheme variables for backgrounds, text, and borders. */
-/* Pills class for applied filters, discount codes, sold-out, and sale badges. */
-/* ============================================ */
-.button-primary,
-.button-secondary {
-	padding: var(--button--padding-y) var(--button--padding-x);
-	font-size: var(--button--font-size);
-	font-family: var(--button--font-family);
-	letter-spacing: var(--button--letter-spacing);
-	border-radius: var(--button--border-radius);
-	font-weight: var(--button--font-weight);
-	border: 1px solid;
-	cursor: pointer;
-	display: inline-block;
-	text-align: center;
-	text-decoration: none;
-	transition: opacity 0.2s ease;
-}
-
-.button-primary {
-	background-color: var(--color-primary-button-background);
-	color: var(--color-primary-button-text);
-	border-color: var(--color-primary-button-border);
-}
-
-.button-primary:hover,
-.button-primary:focus {
-	background-color: var(--color-primary-button-background-hover);
-	color: var(--color-primary-button-text-hover);
-	border-color: var(--color-primary-button-border-hover);
-}
-
-.button-secondary {
-	background-color: var(--color-secondary-button-background);
-	color: var(--color-secondary-button-text);
-	border-color: var(--color-secondary-button-border);
-}
-
-.button-secondary:hover,
-.button-secondary:focus {
-	background-color: var(--color-secondary-button-background-hover);
-	color: var(--color-secondary-button-text-hover);
-	border-color: var(--color-secondary-button-border-hover);
-}
-
-.button-pills {
-	padding: var(--pill--padding-y) var(--pill--padding-x);
-	border-radius: var(--pill--border-radius);
-	display: inline-block;
-	text-align: center;
-	text-decoration: none;
 }

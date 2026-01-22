@@ -1,0 +1,81 @@
+/**
+ * Button CSS for the theme. This file is included on every page.
+ *
+ * This file contains:
+ * - Primary button styles
+ * - Secondary button styles
+ * - Pills/badge styles
+ *
+ * All button styles use CSS variables defined in css-variables.liquid,
+ * which allows for dynamic styling via theme settings.
+ */
+
+/* ============================================ */
+/* Button Classes */
+/* ============================================ */
+/* Primary and secondary button classes using button typography variables */
+/* and color scheme variables for backgrounds, text, and borders. */
+/* Pills class for applied filters, discount codes, sold-out, and sale badges. */
+/* ============================================ */
+.button-primary {
+	padding: var(--button-primary--padding-y) var(--button-primary--padding-x);
+	font-size: var(--button-primary--font-size);
+	font-family: var(--button-primary--font-family);
+	letter-spacing: var(--button-primary--letter-spacing);
+	border-radius: var(--button-primary--border-radius);
+	font-weight: var(--button-primary--font-weight);
+	border: 1px solid;
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	background-color: var(--color-primary-button-background);
+	color: var(--color-primary-button-text);
+	border-color: var(--color-primary-button-border);
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.button-primary:hover,
+.button-primary:focus {
+	background-color: var(--color-primary-button-background-hover);
+	color: var(--color-primary-button-text-hover);
+	border-color: var(--color-primary-button-border-hover);
+}
+
+.button-secondary {
+	padding: var(--button-secondary--padding-y) var(--button-secondary--padding-x);
+	font-size: var(--button-secondary--font-size);
+	font-family: var(--button-secondary--font-family);
+	letter-spacing: var(--button-secondary--letter-spacing);
+	border-radius: var(--button-secondary--border-radius);
+	font-weight: var(--button-secondary--font-weight);
+	border: 1px solid;
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	background-color: var(--color-secondary-button-background);
+	color: var(--color-secondary-button-text);
+	border-color: var(--color-secondary-button-border);
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.button-secondary:hover,
+.button-secondary:focus {
+	background-color: var(--color-secondary-button-background-hover);
+	color: var(--color-secondary-button-text-hover);
+	border-color: var(--color-secondary-button-border-hover);
+}
+
+.button-pills {
+	padding: var(--pill--padding-y) var(--pill--padding-x);
+	font-size: var(--pill--font-size);
+	font-family: var(--pill--font-family);
+	font-weight: var(--pill--font-weight);
+	border-radius: var(--pill--border-radius);
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	background-color: var(--color-primary-button-background);
+	color: var(--color-primary-button-text);
+}

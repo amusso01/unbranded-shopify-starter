@@ -113,28 +113,45 @@
     --type-paragraph--letter-spacing: {{ settings.type_paragraph_letter_spacing | times: 10 }}px;
 
     {% # ============================================ %}
-    {% # Button Variables %}
+    {% # Primary Button Variables %}
     {% # ============================================ %}
-    {% # Typography and spacing settings for buttons. %}
-    {% # Used by .button-primary and .button-secondary classes. %}
+    {% # Typography and spacing settings for primary buttons. %}
+    {% # Used by .button-primary class. %}
     {% # ============================================ %}
-    --button--padding-x: {{ settings.button_padding_x }}px;
-    --button--padding-y: {{ settings.button_padding_y }}px;
-    --button--font-size: {{ settings.button_font_size }}px;
-    --button--font-family: {% if settings.button_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
-    --button--letter-spacing: {{ settings.button_letter_spacing }}px;
-    --button--border-radius: {{ settings.button_border_radius }}px;
-    --button--font-weight: {{ settings.button_font_weight }};
+    --button-primary--padding-x: {{ settings.primary_button_padding_x }}px;
+    --button-primary--padding-y: {{ settings.primary_button_padding_y }}px;
+    --button-primary--font-size: {{ settings.primary_button_font_size }}px;
+    --button-primary--font-family: {% if settings.primary_button_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
+    --button-primary--letter-spacing: {{ settings.primary_button_letter_spacing }}px;
+    --button-primary--border-radius: {{ settings.primary_button_border_radius }}px;
+    --button-primary--font-weight: {{ settings.primary_button_font_weight }};
+
+    {% # ============================================ %}
+    {% # Secondary Button Variables %}
+    {% # ============================================ %}
+    {% # Typography and spacing settings for secondary buttons. %}
+    {% # Used by .button-secondary class. %}
+    {% # ============================================ %}
+    --button-secondary--padding-x: {{ settings.secondary_button_padding_x }}px;
+    --button-secondary--padding-y: {{ settings.secondary_button_padding_y }}px;
+    --button-secondary--font-size: {{ settings.secondary_button_font_size }}px;
+    --button-secondary--font-family: {% if settings.secondary_button_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
+    --button-secondary--letter-spacing: {{ settings.secondary_button_letter_spacing }}px;
+    --button-secondary--border-radius: {{ settings.secondary_button_border_radius }}px;
+    --button-secondary--font-weight: {{ settings.secondary_button_font_weight }};
 
     {% # ============================================ %}
     {% # Pills Variables %}
     {% # ============================================ %}
-    {% # Spacing and border radius settings for pills. %}
+    {% # Spacing, border radius, and typography settings for pills. %}
     {% # Used by .button-pills class. %}
     {% # ============================================ %}
     --pill--padding-x: {{ settings.pill_padding_x }}px;
     --pill--padding-y: {{ settings.pill_padding_y }}px;
     --pill--border-radius: {{ settings.pill_border_radius }}px;
+    --pill--font-size: {{ settings.pill_font_size }}px;
+    --pill--font-family: {% if settings.pill_font == 'header' %}var(--font-header--family){% else %}var(--font-body--family){% endif %};
+    --pill--font-weight: {{ settings.pill_font_weight }};
   }
 
   {% # ============================================ %}
